@@ -50,9 +50,9 @@ function joinValues(array, delimiter = '/') {
 	return array.filter(s => s).join(delimiter);
 }
 
-function shortenURL(href, currentLocation = 'https://github.com') {
-	currentLocation = new URL(currentLocation);
-	const currentRepo = currentLocation.pathname.slice(1).split('/', 2).join('/');
+function shortenURL(href, currentUrl = 'https://github.com') {
+	currentUrl = new URL(currentUrl);
+	const currentRepo = currentUrl.pathname.slice(1).split('/', 2).join('/');
 
 	/**
 	 * Parse URL
@@ -92,7 +92,7 @@ function shortenURL(href, currentLocation = 'https://github.com') {
 	revision = styleRevision(revision);
 	filePath = filePath.join('/');
 
-	const isLocal = origin === currentLocation.origin;
+	const isLocal = origin === currentUrl.origin;
 	const isThisRepo = (isLocal || isRaw) && currentRepo === `${user}/${repo}`;
 	const isReserved = reservedPaths.includes(user);
 	const [, diffOrPatch] = pathname.match(patchDiffRegex) || [];
@@ -163,12 +163,12 @@ function shortenURL(href, currentLocation = 'https://github.com') {
 	return `${pathname.replace(/^[/]|[/]$/g, '')}${search}${hash}`;
 }
 
-function applyToLink(a, currentLocation) {
+function applyToLink(a, currentUrl) {
 	// Shorten only if the link name hasn't bee customized.
 	// .href automatically adds a / to naked origins
 	// so that needs to be tested too
 	if (a.href === a.textContent || a.href === `${a.textContent}/`) {
-		const shortened = shortenURL(a.href, currentLocation);
+		const shortened = shortenURL(a.href, currentUrl);
 		// Only touch the dom is the URL has been shortened
 		if (shortened !== a.textContent) {
 			a.innerHTML = shortened;
