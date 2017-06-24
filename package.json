@@ -1,6 +1,6 @@
 {
   "name": "shorten-repo-url",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Shorten GitHub/GitLab URLs like GitHub shortens Issues and Commit URLs",
   "license": "MIT",
   "repository": "bfred-it/shorten-repo-url",
@@ -34,7 +34,10 @@
   },
   "xo": {
     "rules": {
-      "comma-dangle": ["error", "always-multiline"]
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ]
     }
   }
 }
