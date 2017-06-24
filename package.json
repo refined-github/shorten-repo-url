@@ -31,5 +31,10 @@
   },
   "browser": {
     "url": "./browser-url"
+  },
+  "xo": {
+    "rules": {
+      "comma-dangle": ["error", "only-multiline"]
+    }
   }
 }
