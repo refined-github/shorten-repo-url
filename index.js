@@ -1,12 +1,11 @@
 const {URL} = require('url');
+const reservedPaths = require('github-reserved-names').all;
 
 const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /(?:releases[/]tag|tags)[/]([^/]+)/;
 const labelRegex = /labels[/]([^/]+)/;
 const releaseArchiveRegex = /archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /releases[/]download[/]([^/]+)[/](.+)/;
-
-const reservedPaths = require('github-reserved-names').all;
 
 function styleRevision(revision) {
 	if (!revision) {
