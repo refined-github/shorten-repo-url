@@ -19,14 +19,25 @@ $ npm install --save shorten-repo-url
 ```js
 const shortenRepoUrl = require('shorten-repo-url');
 
-const HTML = shortenRepoUrl('https://github.com/nodejs/node/tree/v0.12/doc');
-//=> 'nodejs/node@<code>v0.12</code>'
+
+const HTML = shortenRepoUrl(
+	'https://github.com/nodejs/node/tree/v0.12/doc',
+	'https://github.com/nodejs/node' // same repo
+);
+//=> '<code>v0.12</code>' // repo-less URL
+
+const HTML = shortenRepoUrl(
+	'https://github.com/nodejs/node/tree/v0.12/doc',
+	'https://github.com' // not the same repo
+);
+//=> 'nodejs/node@<code>v0.12</code>' // URL with repo
+
 ```
 
 
 ## API
 
-### shortenRepoUrl(url)
+### shortenRepoUrl(url, currentUrl)
 
 Returns the shortened URL in HTML as a `string` like `nodejs/node@<code>v0.12</code>`.
 
@@ -35,6 +46,12 @@ Returns the shortened URL in HTML as a `string` like `nodejs/node@<code>v0.12</c
 Type: `string`
 
 The GitHub URL to shorten.
+
+#### currentUrl
+
+Type: `string`, like `location.href`
+
+The URL of the current page, to build relative URLs like `<code>v0.12</code>` instead of the longer `nodejs/node@<code>v0.12</code>`
 
 ### shortenRepoUrl.applyToLink(link)
 
