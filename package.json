@@ -39,5 +39,8 @@
         "always-multiline"
       ]
     }
+  },
+  "dependencies": {
+    "github-reserved-names": "^1.0.3"
   }
 }

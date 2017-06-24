@@ -6,33 +6,7 @@ const labelRegex = /labels[/]([^/]+)/;
 const releaseArchiveRegex = /archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /releases[/]download[/]([^/]+)[/](.+)/;
 
-const reservedPaths = [
-	'new',
-	'join',
-	'site',
-	'blog',
-	'gist',
-	'about',
-	'login',
-	'pulls',
-	'search',
-	'issues',
-	'explore',
-	'contact',
-	'pricing',
-	'trending',
-	'settings',
-	'features',
-	'business',
-	'personal',
-	'security',
-	'dashboard',
-	'showcases',
-	'open-source',
-	'marketplace',
-	'organizations',
-	'notifications',
-];
+const reservedPaths = require('github-reserved-names').all;
 
 function styleRevision(revision) {
 	if (!revision) {
