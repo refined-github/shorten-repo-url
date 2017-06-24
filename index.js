@@ -1,38 +1,11 @@
 const {URL} = require('url');
+const reservedPaths = require('github-reserved-names/reserved-names.json');
 
 const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /(?:releases[/]tag|tags)[/]([^/]+)/;
 const labelRegex = /labels[/]([^/]+)/;
 const releaseArchiveRegex = /archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /releases[/]download[/]([^/]+)[/](.+)/;
-
-const reservedPaths = [
-	'new',
-	'join',
-	'site',
-	'blog',
-	'gist',
-	'about',
-	'login',
-	'pulls',
-	'search',
-	'issues',
-	'explore',
-	'contact',
-	'pricing',
-	'trending',
-	'settings',
-	'features',
-	'business',
-	'personal',
-	'security',
-	'dashboard',
-	'showcases',
-	'open-source',
-	'marketplace',
-	'organizations',
-	'notifications',
-];
 
 function styleRevision(revision) {
 	if (!revision) {
