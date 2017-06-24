@@ -1,5 +1,5 @@
 const {URL} = require('url');
-const reservedPaths = require('github-reserved-names').all;
+const reservedPaths = require('github-reserved-names/reserved-names.json');
 
 const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /(?:releases[/]tag|tags)[/]([^/]+)/;
