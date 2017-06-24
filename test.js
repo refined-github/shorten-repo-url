@@ -11,12 +11,16 @@ function urlMatcherMacro(t, locations, shouldMatch = []) {
 	}
 }
 
-// URLs are made up, but theirstructure must be real.
-// Some URLs may be skipped with `false` if they require complex code changes.
-test(urlMatcherMacro, [
+// Tests are done using each of these as the currentUrl
+const supportedDomains = [
 	'https://github.com/bfred-it/shorten-repo-url/issue/1',
 	'https://gitlab.com/bfred-it/shorten-repo-url/issue/1',
-], [
+];
+
+// URLs are made up, but theirstructure must be real.
+// Some URLs may be skipped with `false` if they require complex code changes.
+// Format is [expected, domain1url, ..., domainNurl]
+const expectedPairs = [
 	[
 		'bfred-it/shorten-repo-url',
 		'https://github.com/bfred-it/shorten-repo-url/',
@@ -447,4 +451,6 @@ test(urlMatcherMacro, [
 		'https://example.com/nodejs/node/blob/cc8fc46/.gitignore',
 		'https://example.com/nodejs/node/blob/cc8fc46/.gitignore',
 	],
-]);
+];
+
+test(urlMatcherMacro, supportedDomains, expectedPairs);
