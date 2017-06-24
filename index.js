@@ -163,12 +163,12 @@ function shortenURL(href, currentLocation = 'https://github.com') {
 	return `${pathname.replace(/^[/]|[/]$/g, '')}${search}${hash}`;
 }
 
-function applyToLink(a) {
+function applyToLink(a, currentLocation) {
 	// Shorten only if the link name hasn't bee customized.
 	// .href automatically adds a / to naked origins
 	// so that needs to be tested too
 	if (a.href === a.textContent || a.href === `${a.textContent}/`) {
-		const shortened = shortenURL(a.href);
+		const shortened = shortenURL(a.href, currentLocation);
 		// Only touch the dom is the URL has been shortened
 		if (shortened !== a.textContent) {
 			a.innerHTML = shortened;

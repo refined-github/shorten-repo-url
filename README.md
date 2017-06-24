@@ -53,13 +53,21 @@ Type: `string`, like `location.href`
 
 The URL of the current page, to build relative URLs like `<code>v0.12</code>` instead of the longer `nodejs/node@<code>v0.12</code>`
 
-### shortenRepoUrl.applyToLink(link)
+### shortenRepoUrl.applyToLink(link, currentUrl)
+
+Automatically shorten the link's text if the text matches the URL, i.e. `<a href="https://github.com">https://github.com</a>`
+
+#### link
 
 Type: `Element`
 
 Example: `shortenRepoUrl.applyToLink(document.querySelector(a))`
 
-Automatically shorten the link's text if the text matches the URL, i.e. `<a href="https://github.com">https://github.com</a>`
+#### currentUrl
+
+Type: `string`, like `location.href`
+
+Same as before.
 
 
 ## License
