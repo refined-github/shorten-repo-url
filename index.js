@@ -1,7 +1,7 @@
 const {URL} = require('url');
 
 const patchDiffRegex = /[.](patch|diff)$/;
-const releaseRegex = /releases[/]tag[/]([^/]+)/;
+const releaseRegex = /(?:releases[/]tag|tags)[/]([^/]+)/;
 const labelRegex = /labels[/]([^/]+)/;
 const releaseArchiveRegex = /archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /releases[/]download[/]([^/]+)[/](.+)/;
@@ -31,7 +31,7 @@ const reservedPaths = [
 	'open-source',
 	'marketplace',
 	'organizations',
-	'notifications'
+	'notifications',
 ];
 
 function styleRevision(revision) {
@@ -51,6 +51,10 @@ function joinValues(array, delimiter = '/') {
 }
 
 function shortenURL(href, currentUrl = 'https://github.com') {
+	if (!href) {
+		return;
+	}
+
 	currentUrl = new URL(currentUrl);
 	const currentRepo = currentUrl.pathname.slice(1).split('/', 2).join('/');
 
@@ -61,13 +65,13 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		origin,
 		pathname,
 		search,
-		hash
+		hash,
 	} = new URL(href);
 
 	const isRaw = [
 		'https://raw.githubusercontent.com',
 		'https://cdn.rawgit.com',
-		'https://rawgit.com'
+		'https://rawgit.com',
 	].includes(origin);
 
 	let [
@@ -105,7 +109,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		'tree',
 		'blob',
 		'blame',
-		'commits'
+		'commits',
 	].includes(type);
 
 	const repoUrl = isThisRepo ? '' : `${user}/${repo}`;

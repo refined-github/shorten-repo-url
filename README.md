@@ -1,10 +1,12 @@
 # shorten-repo-url [![Build Status](https://travis-ci.org/bfred-it/shorten-repo-url.svg?branch=master)](https://travis-ci.org/bfred-it/shorten-repo-url)
 
-> Shorten GitHub links like GitHub shortens Issues and Commit links. Used on [refined-github](https://github.com/sindresorhus/refined-github)
+> Shorten GitHub/GitLab links like GitHub shortens Issues and Commit links. Used on [refined-github](https://github.com/sindresorhus/refined-github)
 
 ![Demo](https://user-images.githubusercontent.com/1402241/27252232-8fdf8ed0-538b-11e7-8f19-12d317c9cd32.png)
 
-Look at [the tests](https://github.com/bfred-it/shorten-repo-url/blob/master/test.js) to see what each URL is shortened to. GitLab URLs are untested but they seem compatible. PRs welcome to add support/tests for GitLab and BitBucket URLs.
+Look at [the tests](https://github.com/bfred-it/shorten-repo-url/blob/master/test.js) to see what each URL is shortened to. GitLab URLs are mostly compatible. Not all are shortened. PRs welcome to add support/tests for more GitLab and BitBucket URLs, unless they just become too much.
+
+It works on any domain, so Enterprise and Community Editions are supported.
 
 
 ## Install
