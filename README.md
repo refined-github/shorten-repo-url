@@ -59,6 +59,8 @@ The URL of the current page, to build relative URLs like `<code>v0.12</code>` in
 
 Automatically shorten the link's text if the text matches the URL, i.e. `<a href="https://github.com">https://github.com</a>`
 
+It will return `true` or `false` depending on whether the link was shortened.
+
 #### link
 
 Type: `Element`
