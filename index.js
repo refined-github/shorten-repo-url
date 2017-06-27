@@ -149,8 +149,10 @@ function applyToLink(a, currentUrl) {
 		// Only touch the dom is the URL has been shortened
 		if (shortened !== a.textContent) {
 			a.innerHTML = shortened;
+			return true;
 		}
 	}
+	return false;
 }
 
 module.exports = shortenURL;
