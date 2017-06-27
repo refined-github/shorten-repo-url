@@ -17,7 +17,7 @@ const supportedDomains = [
 	'https://gitlab.com/bfred-it/shorten-repo-url/issue/1',
 ];
 
-// URLs are made up, but theirstructure must be real.
+// URLs are made up, but their structure must be real.
 // Some URLs may be skipped with `false` if they require complex code changes.
 // Format is [expected, domain1url, ..., domainNurl]
 const expectedPairs = [
