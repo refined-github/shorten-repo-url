@@ -451,6 +451,16 @@ const expectedPairs = [
 		'https://example.com/nodejs/node/blob/cc8fc46/.gitignore',
 		'https://example.com/nodejs/node/blob/cc8fc46/.gitignore',
 	],
+	[
+		'github.com',
+		'https://github.com/',
+		false,
+	],
+	[
+		'gitlab.com',
+		false,
+		'https://gitlab.com/',
+	],
 ];
 
 test(urlMatcherMacro, supportedDomains, expectedPairs);

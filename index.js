@@ -91,7 +91,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	 * Shorten URL
 	 */
 
-	if (isReserved || (!isLocal && !isRaw)) {
+	if (isReserved || pathname === '/' || (!isLocal && !isRaw)) {
 		return href
 		.replace(/^https:[/][/]/, '')
 		.replace(/^www[.]/, '')
