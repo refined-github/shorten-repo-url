@@ -1,7 +1,7 @@
 {
   "name": "shorten-repo-url",
   "version": "1.4.1",
-  "description": "Shorten GitHub/GitLab URLs like GitHub shortens Issues and Commit URLs",
+  "description": "Shorten GitHub URLs like GitHub shortens Issues and Commit URLs",
   "license": "MIT",
   "repository": "bfred-it/shorten-repo-url",
   "author": "Federico Brigante <github@bfred.it> (bfred.it)",
@@ -31,14 +31,6 @@
   },
   "browser": {
     "url": "./browser-url"
-  },
-  "xo": {
-    "rules": {
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ]
-    }
   },
   "dependencies": {
     "github-reserved-names": "^1.0.3"

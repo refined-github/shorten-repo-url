@@ -2,7 +2,7 @@ const {URL} = require('url');
 const reservedPaths = require('github-reserved-names/reserved-names.json');
 
 const patchDiffRegex = /[.](patch|diff)$/;
-const releaseRegex = /(?:releases[/]tag|tags)[/]([^/]+)/;
+const releaseRegex = /releases[/]tag[/]([^/]+)/;
 const labelRegex = /labels[/]([^/]+)/;
 const releaseArchiveRegex = /archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /releases[/]download[/]([^/]+)[/](.+)/;
@@ -38,13 +38,13 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		origin,
 		pathname,
 		search,
-		hash,
+		hash
 	} = new URL(href);
 
 	const isRaw = [
 		'https://raw.githubusercontent.com',
 		'https://cdn.rawgit.com',
-		'https://rawgit.com',
+		'https://rawgit.com'
 	].includes(origin);
 
 	let [
@@ -82,7 +82,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		'tree',
 		'blob',
 		'blame',
-		'commits',
+		'commits'
 	].includes(type);
 
 	const repoUrl = isThisRepo ? '' : `${user}/${repo}`;
