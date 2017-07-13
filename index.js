@@ -141,7 +141,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 }
 
 function applyToLink(a, currentUrl) {
-	// Shorten only if the link name hasn't bee customized.
+	// Shorten only if the link name hasn't been customized.
 	// .href automatically adds a / to naked origins
 	// so that needs to be tested too
 	if (a.href === a.textContent || a.href === `${a.textContent}/`) {
