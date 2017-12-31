@@ -1,4 +1,4 @@
-const {URL} = require('url');
+const URL = require('url-parse');
 const reservedPaths = require('github-reserved-names/reserved-names.json');
 
 const patchDiffRegex = /[.](patch|diff)$/;
@@ -37,7 +37,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const {
 		origin,
 		pathname,
-		search,
+		query: search,
 		hash
 	} = new URL(href);
 
