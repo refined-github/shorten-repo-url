@@ -29,6 +29,9 @@
     "ava": "*",
     "xo": "*"
   },
+  "engines": {
+    "node" : ">=7.0.0"
+  },
   "browser": {
     "url": "./browser-url"
   },
