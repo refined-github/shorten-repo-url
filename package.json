@@ -33,6 +33,7 @@
     "url": "./browser-url"
   },
   "dependencies": {
-    "github-reserved-names": "^1.0.3"
+    "github-reserved-names": "^1.0.3",
+    "url-parse": "^1.2.0"
   }
 }
