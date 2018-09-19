@@ -93,9 +93,9 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 
 	if (isReserved || pathname === '/' || (!isLocal && !isRaw)) {
 		return href
-		.replace(/^https:[/][/]/, '')
-		.replace(/^www[.]/, '')
-		.replace(/[/]$/, '');
+			.replace(/^https:[/][/]/, '')
+			.replace(/^www[.]/, '')
+			.replace(/[/]$/, '');
 	}
 
 	if (user && !repo) {
