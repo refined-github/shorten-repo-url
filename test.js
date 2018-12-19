@@ -27,6 +27,10 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node'
 	],
 	[
+		'https://github.com/nodejs/shorten-repo-url/',
+		'nodejs/shorten-repo-url'
+	],
+	[
 		'https://github.com/nodejs/node/tree/v0.12',
 		'nodejs/node@<code>v0.12</code>'
 	],
