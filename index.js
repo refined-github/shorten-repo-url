@@ -6,6 +6,8 @@ const releaseRegex = /releases[/]tag[/]([^/]+)/;
 const labelRegex = /labels[/]([^/]+)/;
 const releaseArchiveRegex = /archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /releases[/]download[/]([^/]+)[/](.+)/;
+const dependentsRegex = /network[/]dependents[/]$/;
+const dependenciesRegex = /network[/]dependencies[/]$/;
 
 function styleRevision(revision) {
 	if (!revision) {
@@ -72,6 +74,8 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const isLocal = origin === currentUrl.origin;
 	const isThisRepo = (isLocal || isRaw) && currentRepo === `${user}/${repo}`;
 	const isReserved = reservedPaths.includes(user);
+	const isDependents = dependentsRegex.test(pathname);
+	const isDependencies = dependenciesRegex.test(pathname);
 	const [, diffOrPatch] = pathname.match(patchDiffRegex) || [];
 	const [, release] = pathname.match(releaseRegex) || [];
 	const [, releaseTag, releaseTagExt] = pathname.match(releaseArchiveRegex) || [];
@@ -134,6 +138,14 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 
 	if (label) {
 		return joinValues([repoUrl, label]) + `${search}${hash} (label)`;
+	}
+
+	if (isDependents) {
+		return `${user}/${repo} (dependents)`;
+	}
+
+	if (isDependencies) {
+		return `${user}/${repo} (dependencies)`;
 	}
 
 	// Drop leading and trailing slash of relative path
