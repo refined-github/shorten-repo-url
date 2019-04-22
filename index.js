@@ -11,10 +11,12 @@ function styleRevision(revision) {
 	if (!revision) {
 		return;
 	}
+
 	revision = revision.replace(patchDiffRegex, '');
 	if (/^[0-9a-f]{40}$/.test(revision)) {
 		revision = revision.substr(0, 7);
 	}
+
 	return `<code>${revision}</code>`;
 }
 
@@ -109,6 +111,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		if (type !== 'blob' && type !== 'tree') {
 			return `${partial} (${type})`;
 		}
+
 		return partial;
 	}
 
@@ -152,6 +155,7 @@ function applyToLink(a, currentUrl) {
 			return true;
 		}
 	}
+
 	return false;
 }
 
