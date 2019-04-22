@@ -20,17 +20,19 @@
   ],
   "files": [
     "index.js",
-    "browser-url.js"
+    "browser-url.js",
+    "index.d.ts"
   ],
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && tsd && ava"
   },
   "devDependencies": {
     "ava": "*",
+    "tsd": "^0.7.2",
     "xo": "*"
   },
   "engines": {
-    "node" : ">=7.0.0"
+    "node": ">=7.0.0"
   },
   "browser": {
     "url": "./browser-url"
