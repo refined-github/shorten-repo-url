@@ -20,22 +20,41 @@
   ],
   "files": [
     "index.js",
-    "browser-url.js"
+    "browser-url.js",
+    "index.d.ts"
   ],
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && tsd && ava"
   },
   "devDependencies": {
+    "@sindresorhus/tsconfig": "^0.3.0",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
     "ava": "*",
+    "eslint-config-xo-typescript": "^0.9.0",
+    "tsd": "^0.7.2",
     "xo": "*"
   },
   "engines": {
-    "node" : ">=7.0.0"
+    "node": ">=7.0.0"
   },
   "browser": {
     "url": "./browser-url"
   },
   "dependencies": {
     "github-reserved-names": "^1.0.3"
+  },
+  "xo": {
+    "extensions": [
+      "ts"
+    ],
+    "envs": [
+      "browser"
+    ],
+    "overrides": [
+      {
+        "files": "**/*.ts",
+        "extends": "xo-typescript"
+      }
+    ]
   }
 }
