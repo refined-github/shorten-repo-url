@@ -47,6 +47,9 @@
     "extensions": [
       "ts"
     ],
+    "envs": [
+      "browser"
+    ],
     "overrides": [
       {
         "files": "**/*.ts",
