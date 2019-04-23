@@ -27,7 +27,10 @@
     "test": "xo && tsd && ava"
   },
   "devDependencies": {
+    "@sindresorhus/tsconfig": "^0.3.0",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
     "ava": "*",
+    "eslint-config-xo-typescript": "^0.9.0",
     "tsd": "^0.7.2",
     "xo": "*"
   },
@@ -39,5 +42,16 @@
   },
   "dependencies": {
     "github-reserved-names": "^1.0.3"
+  },
+  "xo": {
+    "extensions": [
+      "ts"
+    ],
+    "overrides": [
+      {
+        "files": "**/*.ts",
+        "extends": "xo-typescript"
+      }
+    ]
   }
 }
