@@ -163,6 +163,30 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'bfred-it/shorten-repo-url/milestone/25'
 	],
 	[
+		'https://github.com/bfred-it/shorten-repo-url/compare/d71718db6aa4feb8dc10edbad1134472468e971a',
+		'<code>d71718d</code> (compare)'
+	],
+	[
+		'https://github.com/bfred-it/shorten-repo-url/compare/master',
+		'<code>master</code> (compare)'
+	],
+	[
+		'https://github.com/bfred-it/shorten-repo-url/compare/master...master',
+		'<code>master...master</code> (compare)'
+	],
+	[
+		'https://github.com/nodejs/node/compare/d71718db6aa4feb8dc10edbad1134472468e971a',
+		'nodejs/node@<code>d71718d</code> (compare)'
+	],
+	[
+		'https://github.com/nodejs/node/compare/master',
+		'nodejs/node@<code>master</code> (compare)'
+	],
+	[
+		'https://github.com/nodejs/node/compare/master...master',
+		'nodejs/node@<code>master...master</code> (compare)'
+	],
+	[
 		'https://github.com/nodejs/node/milestone/25',
 		'nodejs/node/milestone/25'
 	],
@@ -203,6 +227,10 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'bfred-it/shorten-repo-url/labels'
 	],
 	[
+		'https://github.com/bfred-it/shorten-repo-url/compare',
+		'bfred-it/shorten-repo-url/compare'
+	],
+	[
 		'https://github.com/bfred-it/shorten-repo-url/network',
 		'bfred-it/shorten-repo-url/network'
 	],
@@ -233,6 +261,10 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 	[
 		'https://github.com/nodejs/node/labels',
 		'nodejs/node/labels'
+	],
+	[
+		'https://github.com/nodejs/node/compare',
+		'nodejs/node/compare'
 	],
 	[
 		'https://github.com/nodejs/node/network',
