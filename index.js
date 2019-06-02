@@ -4,6 +4,7 @@ const reservedPaths = require('github-reserved-names/reserved-names.json');
 const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /releases[/]tag[/]([^/]+)/;
 const labelRegex = /labels[/]([^/]+)/;
+const compareRegex = /compare[/]([^/]+)/;
 const releaseArchiveRegex = /archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /releases[/]download[/]([^/]+)[/](.+)/;
 
@@ -79,6 +80,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const [, releaseTag, releaseTagExt] = pathname.match(releaseArchiveRegex) || [];
 	const [, downloadTag, downloadFilename] = pathname.match(releaseDownloadRegex) || [];
 	const [, label] = pathname.match(labelRegex) || [];
+	const [, compare] = pathname.match(compareRegex) || [];
 	const isFileOrDir = revision && [
 		'raw',
 		'tree',
@@ -137,6 +139,11 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 
 	if (label) {
 		return joinValues([repoUrl, label]) + `${search}${hash} (label)`;
+	}
+
+	if (compare) {
+		const partial = joinValues([repoUrl, revision], '@');
+		return `${partial}${search}${hash} (compare)`;
 	}
 
 	// Drop leading and trailing slash of relative path
