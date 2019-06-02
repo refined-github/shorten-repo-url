@@ -35,7 +35,7 @@
     "xo": "*"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=7.0.0"
   },
   "browser": {
     "url": "./browser-url"
