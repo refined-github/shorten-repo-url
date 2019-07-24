@@ -1,7 +1,7 @@
 import test from 'ava';
 import shortenUrl from '.';
 
-const currentLocation = 'https://github.com/bfred-it/shorten-repo-url/issue/1';
+const currentLocation = 'https://github.com/fregante/shorten-repo-url/issue/1';
 
 function urlMatcherMacro(t, shouldMatch = []) {
 	for (const [originalUrl, expectedShortenedUrl] of shouldMatch) {
@@ -11,15 +11,15 @@ function urlMatcherMacro(t, shouldMatch = []) {
 
 test('GitHub.com URLs', urlMatcherMacro, new Map([
 	[
-		'https://github.com/bfred-it/shorten-repo-url/',
-		'bfred-it/shorten-repo-url'
+		'https://github.com/fregante/shorten-repo-url/',
+		'fregante/shorten-repo-url'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/tree/v0.12',
+		'https://github.com/fregante/shorten-repo-url/tree/v0.12',
 		'<code>v0.12</code>'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/tree/d71718db6aa4feb8dc10edbad1134472468e971a',
+		'https://github.com/fregante/shorten-repo-url/tree/d71718db6aa4feb8dc10edbad1134472468e971a',
 		'<code>d71718d</code>'
 	],
 	[
@@ -39,15 +39,15 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node@<code>d71718d</code>'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/tree/master/doc',
+		'https://github.com/fregante/shorten-repo-url/tree/master/doc',
 		'/doc@<code>master</code>'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/tree/v0.12/doc',
+		'https://github.com/fregante/shorten-repo-url/tree/v0.12/doc',
 		'/doc@<code>v0.12</code>'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/tree/d71718db6aa4feb8dc10edbad1134472468e971a/doc',
+		'https://github.com/fregante/shorten-repo-url/tree/d71718db6aa4feb8dc10edbad1134472468e971a/doc',
 		'/doc@<code>d71718d</code>'
 	],
 	[
@@ -63,15 +63,15 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node:doc@<code>d71718d</code>'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/blob/master/.gitignore',
+		'https://github.com/fregante/shorten-repo-url/blob/master/.gitignore',
 		'/.gitignore@<code>master</code>'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/blob/v0.12/.gitignore',
+		'https://github.com/fregante/shorten-repo-url/blob/v0.12/.gitignore',
 		'/.gitignore@<code>v0.12</code>'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/blob/cc8fc46/.gitignore',
+		'https://github.com/fregante/shorten-repo-url/blob/cc8fc46/.gitignore',
 		'/.gitignore@<code>cc8fc46</code>'
 	],
 	[
@@ -87,15 +87,15 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node:.gitignore@<code>cc8fc46</code>'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/blame/master/.gitignore',
+		'https://github.com/fregante/shorten-repo-url/blame/master/.gitignore',
 		'/.gitignore@<code>master</code> (blame)'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/blame/v0.12/.gitignore',
+		'https://github.com/fregante/shorten-repo-url/blame/v0.12/.gitignore',
 		'/.gitignore@<code>v0.12</code> (blame)'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/blame/cc8fc46/.gitignore',
+		'https://github.com/fregante/shorten-repo-url/blame/cc8fc46/.gitignore',
 		'/.gitignore@<code>cc8fc46</code> (blame)'
 	],
 	[
@@ -111,15 +111,15 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node:.gitignore@<code>cc8fc46</code> (blame)'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/commits/master/.gitignore',
+		'https://github.com/fregante/shorten-repo-url/commits/master/.gitignore',
 		'/.gitignore@<code>master</code> (commits)'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/commits/v0.12/.gitignore',
+		'https://github.com/fregante/shorten-repo-url/commits/v0.12/.gitignore',
 		'/.gitignore@<code>v0.12</code> (commits)'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/commits/cc8fc46/.gitignore',
+		'https://github.com/fregante/shorten-repo-url/commits/cc8fc46/.gitignore',
 		'/.gitignore@<code>cc8fc46</code> (commits)'
 	],
 	[
@@ -135,11 +135,11 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node:.gitignore@<code>cc8fc46</code> (commits)'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/commit/cc8fc46.diff',
+		'https://github.com/fregante/shorten-repo-url/commit/cc8fc46.diff',
 		'<code>cc8fc46</code>.diff'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/commit/cc8fc46.patch',
+		'https://github.com/fregante/shorten-repo-url/commit/cc8fc46.patch',
 		'<code>cc8fc46</code>.patch'
 	],
 	[
@@ -151,7 +151,7 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node@<code>cc8fc46</code>.patch'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/releases/tag/v0.12.0',
+		'https://github.com/fregante/shorten-repo-url/releases/tag/v0.12.0',
 		'<code>v0.12.0</code> (release)'
 	],
 	[
@@ -159,19 +159,19 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node@<code>v0.12.0</code> (release)'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/milestone/25',
-		'bfred-it/shorten-repo-url/milestone/25'
+		'https://github.com/fregante/shorten-repo-url/milestone/25',
+		'fregante/shorten-repo-url/milestone/25'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/compare/d71718db6aa4feb8dc10edbad1134472468e971a',
+		'https://github.com/fregante/shorten-repo-url/compare/d71718db6aa4feb8dc10edbad1134472468e971a',
 		'<code>d71718d</code> (compare)'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/compare/master',
+		'https://github.com/fregante/shorten-repo-url/compare/master',
 		'<code>master</code> (compare)'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/compare/master...master',
+		'https://github.com/fregante/shorten-repo-url/compare/master...master',
 		'<code>master...master</code> (compare)'
 	],
 	[
@@ -191,7 +191,7 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node/milestone/25'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/labels/npm',
+		'https://github.com/fregante/shorten-repo-url/labels/npm',
 		'npm (label)'
 	],
 	[
@@ -199,11 +199,11 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node/npm (label)'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/archive/6.4.1.zip',
+		'https://github.com/fregante/shorten-repo-url/archive/6.4.1.zip',
 		'<code>6.4.1</code>.zip'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/releases/download/6.4.1/now-macos',
+		'https://github.com/fregante/shorten-repo-url/releases/download/6.4.1/now-macos',
 		'<code>6.4.1</code> now-macos (download)'
 	],
 	[
@@ -215,40 +215,40 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'zeit/now-cli@<code>6.4.1</code> now-macos (download)'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/wiki',
-		'bfred-it/shorten-repo-url/wiki'
+		'https://github.com/fregante/shorten-repo-url/wiki',
+		'fregante/shorten-repo-url/wiki'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/pulse',
-		'bfred-it/shorten-repo-url/pulse'
+		'https://github.com/fregante/shorten-repo-url/pulse',
+		'fregante/shorten-repo-url/pulse'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/labels',
-		'bfred-it/shorten-repo-url/labels'
+		'https://github.com/fregante/shorten-repo-url/labels',
+		'fregante/shorten-repo-url/labels'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/compare',
-		'bfred-it/shorten-repo-url/compare'
+		'https://github.com/fregante/shorten-repo-url/compare',
+		'fregante/shorten-repo-url/compare'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/network',
-		'bfred-it/shorten-repo-url/network'
+		'https://github.com/fregante/shorten-repo-url/network',
+		'fregante/shorten-repo-url/network'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/projects',
-		'bfred-it/shorten-repo-url/projects'
+		'https://github.com/fregante/shorten-repo-url/projects',
+		'fregante/shorten-repo-url/projects'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/releases',
-		'bfred-it/shorten-repo-url/releases'
+		'https://github.com/fregante/shorten-repo-url/releases',
+		'fregante/shorten-repo-url/releases'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/milestones',
-		'bfred-it/shorten-repo-url/milestones'
+		'https://github.com/fregante/shorten-repo-url/milestones',
+		'fregante/shorten-repo-url/milestones'
 	],
 	[
-		'https://github.com/bfred-it/shorten-repo-url/contributors',
-		'bfred-it/shorten-repo-url/contributors'
+		'https://github.com/fregante/shorten-repo-url/contributors',
+		'fregante/shorten-repo-url/contributors'
 	],
 	[
 		'https://github.com/nodejs/node/wiki',
@@ -291,27 +291,27 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node/graphs/commit-activity'
 	],
 	[
-		'https://rawgit.com/bfred-it/shorten-repo-url/master/.gitignore',
+		'https://rawgit.com/fregante/shorten-repo-url/master/.gitignore',
 		'/.gitignore@<code>master</code> (raw)'
 	],
 	[
-		'https://cdn.rawgit.com/bfred-it/shorten-repo-url/v0.12/.gitignore',
+		'https://cdn.rawgit.com/fregante/shorten-repo-url/v0.12/.gitignore',
 		'/.gitignore@<code>v0.12</code> (raw)'
 	],
 	[
-		'https://cdn.rawgit.com/bfred-it/shorten-repo-url/d71718db/.gitignore',
+		'https://cdn.rawgit.com/fregante/shorten-repo-url/d71718db/.gitignore',
 		'/.gitignore@<code>d71718db</code> (raw)'
 	],
 	[
-		'https://raw.githubusercontent.com/bfred-it/shorten-repo-url/master/.gitignore',
+		'https://raw.githubusercontent.com/fregante/shorten-repo-url/master/.gitignore',
 		'/.gitignore@<code>master</code> (raw)'
 	],
 	[
-		'https://raw.githubusercontent.com/bfred-it/shorten-repo-url/v0.12/.gitignore',
+		'https://raw.githubusercontent.com/fregante/shorten-repo-url/v0.12/.gitignore',
 		'/.gitignore@<code>v0.12</code> (raw)'
 	],
 	[
-		'https://raw.githubusercontent.com/bfred-it/shorten-repo-url/d71718db/.gitignore',
+		'https://raw.githubusercontent.com/fregante/shorten-repo-url/d71718db/.gitignore',
 		'/.gitignore@<code>d71718db</code> (raw)'
 	],
 	[

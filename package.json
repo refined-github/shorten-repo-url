@@ -15,9 +15,9 @@
     "shorter",
     "url"
   ],
-  "repository": "bfred-it/shorten-repo-url",
+  "repository": "fregante/shorten-repo-url",
   "license": "MIT",
-  "author": "Federico Brigante <github@bfred.it> (bfred.it)",
+  "author": "Federico Brigante <opensource@bfred.it> (bfred.it)",
   "files": [
     "index.js",
     "browser-url.js",

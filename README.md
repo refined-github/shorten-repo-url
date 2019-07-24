@@ -1,10 +1,10 @@
-# shorten-repo-url [![Build Status](https://travis-ci.org/bfred-it/shorten-repo-url.svg?branch=master)](https://travis-ci.org/bfred-it/shorten-repo-url)
+# shorten-repo-url [![Build Status](https://travis-ci.org/fregante/shorten-repo-url.svg?branch=master)](https://travis-ci.org/fregante/shorten-repo-url)
 
 > Shorten GitHub links like GitHub shortens Issues and Commit links. Used on [refined-github](https://github.com/sindresorhus/refined-github)
 
 ![Demo](https://user-images.githubusercontent.com/1402241/27252232-8fdf8ed0-538b-11e7-8f19-12d317c9cd32.png)
 
-Look at [the tests](https://github.com/bfred-it/shorten-repo-url/blob/master/test.js) to see what each URL is shortened to. GitLab URLs are mostly compatible but they're not officially supported.
+Look at [the tests](https://github.com/fregante/shorten-repo-url/blob/master/test.js) to see what each URL is shortened to. GitLab URLs are mostly compatible but they're not officially supported.
 
 It works on any domain, so GitHub Enterprise is also supported.
 
@@ -76,5 +76,5 @@ Same as before.
 
 ## License
 
-MIT © [Federico Brigante](http://twitter.com/bfred_it)
+MIT © [Federico Brigante](https://bfred.it)
 
