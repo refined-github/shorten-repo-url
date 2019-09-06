@@ -18,6 +18,6 @@ declare namespace shortenRepoUrl {
 	@example https://github.com/nodejs/node/tree/v0.12/doc becomes nodejs/node@<code>v0.12</code>
 
 	*/
-	var applyToLink: (anchor: HTMLAnchorElement, url?: string) => void;
+	const applyToLink: (anchor: HTMLAnchorElement, url?: string) => void;
 }
 export = shortenRepoUrl;

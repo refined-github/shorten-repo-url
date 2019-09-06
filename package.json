@@ -41,7 +41,10 @@
         "files": "**/*.ts",
         "extends": "xo-typescript"
       }
-    ]
+    ],
+    "rules": {
+      "no-redeclare": 0
+    }
   },
   "dependencies": {
     "github-reserved-names": "^1.0.3"
