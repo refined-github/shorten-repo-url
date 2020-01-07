@@ -4,6 +4,7 @@ const reservedPaths = require('github-reserved-names/reserved-names.json');
 const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /releases[/]tag[/]([^/]+)/;
 const labelRegex = /labels[/]([^/]+)/;
+const compareRegex = /compare[/]([^/]+)/;
 const releaseArchiveRegex = /archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /releases[/]download[/]([^/]+)[/](.+)/;
 const dependentsRegex = /network[/]dependents[/]$/;
@@ -13,10 +14,12 @@ function styleRevision(revision) {
 	if (!revision) {
 		return;
 	}
+
 	revision = revision.replace(patchDiffRegex, '');
 	if (/^[0-9a-f]{40}$/.test(revision)) {
 		revision = revision.substr(0, 7);
 	}
+
 	return `<code>${revision}</code>`;
 }
 
@@ -81,6 +84,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const [, releaseTag, releaseTagExt] = pathname.match(releaseArchiveRegex) || [];
 	const [, downloadTag, downloadFilename] = pathname.match(releaseDownloadRegex) || [];
 	const [, label] = pathname.match(labelRegex) || [];
+	const [, compare] = pathname.match(compareRegex) || [];
 	const isFileOrDir = revision && [
 		'raw',
 		'tree',
@@ -97,9 +101,9 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 
 	if (isReserved || pathname === '/' || (!isLocal && !isRaw)) {
 		return href
-		.replace(/^https:[/][/]/, '')
-		.replace(/^www[.]/, '')
-		.replace(/[/]$/, '');
+			.replace(/^https:[/][/]/, '')
+			.replace(/^www[.]/, '')
+			.replace(/[/]$/, '');
 	}
 
 	if (user && !repo) {
@@ -113,6 +117,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		if (type !== 'blob' && type !== 'tree') {
 			return `${partial} (${type})`;
 		}
+
 		return partial;
 	}
 
@@ -148,6 +153,11 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		return `${user}/${repo} (dependencies)`;
 	}
 
+	if (compare) {
+		const partial = joinValues([repoUrl, revision], '@');
+		return `${partial}${search}${hash} (compare)`;
+	}
+
 	// Drop leading and trailing slash of relative path
 	return `${pathname.replace(/^[/]|[/]$/g, '')}${search}${hash}`;
 }
@@ -164,6 +174,7 @@ function applyToLink(a, currentUrl) {
 			return true;
 		}
 	}
+
 	return false;
 }
 
