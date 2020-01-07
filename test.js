@@ -8,6 +8,7 @@ function urlMatcherMacro(t, shouldMatch = []) {
 		t.is(shortenUrl(originalUrl, currentLocation), expectedShortenedUrl);
 	}
 }
+
 test('GitHub.com URLs', urlMatcherMacro, new Map([
 	[
 		'https://github.com/fregante/shorten-repo-url/',

@@ -17,7 +17,7 @@ function styleRevision(revision) {
 
 	revision = revision.replace(patchDiffRegex, '');
 	if (/^[0-9a-f]{40}$/.test(revision)) {
-		revision = revision.substr(0, 7);
+		revision = revision.slice(0, 7);
 	}
 
 	return `<code>${revision}</code>`;
@@ -58,7 +58,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		type,
 		revision,
 		...filePath
-	] = pathname.substr(1).split('/');
+	] = pathname.slice(1).split('/');
 
 	if (isRaw) {
 		[
@@ -67,7 +67,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 			// Raw URLs don't have `blob` here
 			revision,
 			...filePath
-		] = pathname.substr(1).split('/');
+		] = pathname.slice(1).split('/');
 		type = 'raw';
 	}
 
