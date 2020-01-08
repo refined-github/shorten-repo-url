@@ -215,9 +215,17 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'zeit/now-cli@<code>6.4.1</code> now-macos (download)'
 	],
 	[
+		'https://github.com/bfred-it/shorten-repo-url/network/dependents',
+		'bfred-it/shorten-repo-url (dependents)'
+	],
+	[
 		'https://github.com/bfred-it/shorten-repo-url/network/dependencies',
 		'bfred-it/shorten-repo-url (dependencies)'
 	],
+	[
+		'https://github.com/network/dependencies',
+		'github.com/network/dependencies'
+	], // Tricky
 	[
 		'https://github.com/bfred-it/shorten-repo-url/wiki',
 		'bfred-it/shorten-repo-url/wiki'
