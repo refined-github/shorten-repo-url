@@ -2,14 +2,14 @@ const {URL} = require('url');
 const reservedPaths = require('github-reserved-names/reserved-names.json');
 
 const patchDiffRegex = /[.](patch|diff)$/;
-const releaseRegex = /releases[/]tag[/]([^/]+)/;
-const labelRegex = /labels[/]([^/]+)/;
-const compareRegex = /compare[/]([^/]+)/;
-const pullRegex = /pull[/](\d+)[/]([^/]+)$/;
-const releaseArchiveRegex = /archive[/](.+)([.]zip|[.]tar[.]gz)/;
-const releaseDownloadRegex = /releases[/]download[/]([^/]+)[/](.+)/;
-const dependentsRegex = /network[/]dependents[/]?$/;
-const dependenciesRegex = /network[/]dependencies[/]?$/;
+const releaseRegex = /^releases[/]tag[/]([^/]+)/;
+const labelRegex = /^labels[/]([^/]+)/;
+const compareRegex = /^compare[/]([^/]+)/;
+const pullRegex = /^pull[/](\d+)[/]([^/]+)$/;
+const releaseArchiveRegex = /^archive[/](.+)([.]zip|[.]tar[.]gz)/;
+const releaseDownloadRegex = /^releases[/]download[/]([^/]+)[/](.+)/;
+const dependentsRegex = /^network[/]dependents[/]?$/;
+const dependenciesRegex = /^network[/]dependencies[/]?$/;
 
 function styleRevision(revision) {
 	if (!revision) {
@@ -83,13 +83,13 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const isReserved = reservedPaths.includes(user);
 	const isDependents = dependentsRegex.test(repoPath);
 	const isDependencies = dependenciesRegex.test(repoPath);
-	const [, diffOrPatch] = pathname.match(patchDiffRegex) || [];
-	const [, release] = pathname.match(releaseRegex) || [];
-	const [, releaseTag, releaseTagExt] = pathname.match(releaseArchiveRegex) || [];
-	const [, downloadTag, downloadFilename] = pathname.match(releaseDownloadRegex) || [];
-	const [, label] = pathname.match(labelRegex) || [];
-	const [, compare] = pathname.match(compareRegex) || [];
-	const [, pull, pullPage] = pathname.match(pullRegex) || [];
+	const [, diffOrPatch] = repoPath.match(patchDiffRegex) || [];
+	const [, release] = repoPath.match(releaseRegex) || [];
+	const [, releaseTag, releaseTagExt] = repoPath.match(releaseArchiveRegex) || [];
+	const [, downloadTag, downloadFilename] = repoPath.match(releaseDownloadRegex) || [];
+	const [, label] = repoPath.match(labelRegex) || [];
+	const [, compare] = repoPath.match(compareRegex) || [];
+	const [, pull, pullPage] = repoPath.match(pullRegex) || [];
 	const isFileOrDir = revision && [
 		'raw',
 		'tree',
