@@ -43,6 +43,7 @@
       }
     ],
     "rules": {
+      "complexity": 0,
       "no-redeclare": 0
     }
   },

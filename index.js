@@ -7,6 +7,8 @@ const labelRegex = /labels[/]([^/]+)/;
 const compareRegex = /compare[/]([^/]+)/;
 const releaseArchiveRegex = /archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /releases[/]download[/]([^/]+)[/](.+)/;
+const dependentsRegex = /network[/]dependents[/]?$/;
+const dependenciesRegex = /network[/]dependencies[/]?$/;
 
 function styleRevision(revision) {
 	if (!revision) {
@@ -15,7 +17,7 @@ function styleRevision(revision) {
 
 	revision = revision.replace(patchDiffRegex, '');
 	if (/^[0-9a-f]{40}$/.test(revision)) {
-		revision = revision.substr(0, 7);
+		revision = revision.slice(0, 7);
 	}
 
 	return `<code>${revision}</code>`;
@@ -44,6 +46,9 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		hash
 	} = new URL(href);
 
+	const pathnameParts = pathname.slice(1).split('/'); // ['user', 'repo', 'pull', '342']
+	const repoPath = pathnameParts.slice(2).join('/'); // 'pull/342'
+
 	const isRaw = [
 		'https://raw.githubusercontent.com',
 		'https://cdn.rawgit.com',
@@ -56,7 +61,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		type,
 		revision,
 		...filePath
-	] = pathname.substr(1).split('/');
+	] = pathnameParts;
 
 	if (isRaw) {
 		[
@@ -65,7 +70,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 			// Raw URLs don't have `blob` here
 			revision,
 			...filePath
-		] = pathname.substr(1).split('/');
+		] = pathnameParts;
 		type = 'raw';
 	}
 
@@ -75,6 +80,8 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const isLocal = origin === currentUrl.origin;
 	const isThisRepo = (isLocal || isRaw) && currentRepo === `${user}/${repo}`;
 	const isReserved = reservedPaths.includes(user);
+	const isDependents = dependentsRegex.test(repoPath);
+	const isDependencies = dependenciesRegex.test(repoPath);
 	const [, diffOrPatch] = pathname.match(patchDiffRegex) || [];
 	const [, release] = pathname.match(releaseRegex) || [];
 	const [, releaseTag, releaseTagExt] = pathname.match(releaseArchiveRegex) || [];
@@ -139,6 +146,14 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 
 	if (label) {
 		return joinValues([repoUrl, label]) + `${search}${hash} (label)`;
+	}
+
+	if (isDependents) {
+		return `${user}/${repo} (dependents)`;
+	}
+
+	if (isDependencies) {
+		return `${user}/${repo} (dependencies)`;
 	}
 
 	if (compare) {
