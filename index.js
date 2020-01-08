@@ -5,6 +5,7 @@ const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /releases[/]tag[/]([^/]+)/;
 const labelRegex = /labels[/]([^/]+)/;
 const compareRegex = /compare[/]([^/]+)/;
+const pullRegex = /pull[/](\d+)[/]([^/]+)$/;
 const releaseArchiveRegex = /archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /releases[/]download[/]([^/]+)[/](.+)/;
 const dependentsRegex = /network[/]dependents[/]?$/;
@@ -88,6 +89,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const [, downloadTag, downloadFilename] = pathname.match(releaseDownloadRegex) || [];
 	const [, label] = pathname.match(labelRegex) || [];
 	const [, compare] = pathname.match(compareRegex) || [];
+	const [, pull, pullPage] = pathname.match(pullRegex) || [];
 	const isFileOrDir = revision && [
 		'raw',
 		'tree',
@@ -154,6 +156,10 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 
 	if (isDependencies) {
 		return `${user}/${repo} (dependencies)`;
+	}
+
+	if (pull && pullPage) {
+		return `#${pull} (${pullPage})`;
 	}
 
 	if (compare) {
