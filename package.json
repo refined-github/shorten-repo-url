@@ -20,12 +20,8 @@
   "author": "Federico Brigante <opensource@bfred.it> (bfred.it)",
   "files": [
     "index.js",
-    "browser-url.js",
     "index.d.ts"
   ],
-  "browser": {
-    "url": "./browser-url"
-  },
   "scripts": {
     "test": "xo && tsd && ava"
   },
@@ -60,6 +56,6 @@
     "xo": "*"
   },
   "engines": {
-    "node": ">=7.0.0"
+    "node": ">=10.0.0"
   }
 }

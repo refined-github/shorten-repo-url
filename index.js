@@ -1,4 +1,3 @@
-const {URL} = require('url');
 const reservedPaths = require('github-reserved-names/reserved-names.json');
 
 const patchDiffRegex = /[.](patch|diff)$/;
