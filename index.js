@@ -115,8 +115,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	}
 
 	if (isFileOrDir) {
-		const file = `${repoUrl}${filePath ? (repoUrl ? ':' : '/') : ''}${filePath}`;
-		const revisioned = joinValues([file, revision], '@');
+		const revisioned = joinValues([joinValues([repoUrl, revision], '@'), filePath], '/');
 		const partial = `${revisioned}${search}${hash}`;
 		if (type !== 'blob' && type !== 'tree') {
 			return `${partial} (${type})`;

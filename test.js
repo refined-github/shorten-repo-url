@@ -40,99 +40,99 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/tree/master/doc',
-		'/doc@<code>master</code>'
+		'<code>master</code>/doc'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/tree/v0.12/doc',
-		'/doc@<code>v0.12</code>'
+		'<code>v0.12</code>/doc'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/tree/d71718db6aa4feb8dc10edbad1134472468e971a/doc',
-		'/doc@<code>d71718d</code>'
+		'<code>d71718d</code>/doc'
 	],
 	[
 		'https://github.com/nodejs/node/tree/master/doc',
-		'nodejs/node:doc@<code>master</code>'
+		'nodejs/node@<code>master</code>/doc'
 	],
 	[
 		'https://github.com/nodejs/node/tree/v0.12/doc',
-		'nodejs/node:doc@<code>v0.12</code>'
+		'nodejs/node@<code>v0.12</code>/doc'
 	],
 	[
 		'https://github.com/nodejs/node/tree/d71718db6aa4feb8dc10edbad1134472468e971a/doc',
-		'nodejs/node:doc@<code>d71718d</code>'
+		'nodejs/node@<code>d71718d</code>/doc'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/blob/master/.gitignore',
-		'/.gitignore@<code>master</code>'
+		'<code>master</code>/.gitignore'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/blob/v0.12/.gitignore',
-		'/.gitignore@<code>v0.12</code>'
+		'<code>v0.12</code>/.gitignore'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/blob/cc8fc46/.gitignore',
-		'/.gitignore@<code>cc8fc46</code>'
+		'<code>cc8fc46</code>/.gitignore'
 	],
 	[
 		'https://github.com/nodejs/node/blob/master/.gitignore',
-		'nodejs/node:.gitignore@<code>master</code>'
+		'nodejs/node@<code>master</code>/.gitignore'
 	],
 	[
 		'https://github.com/nodejs/node/blob/v0.12/.gitignore',
-		'nodejs/node:.gitignore@<code>v0.12</code>'
+		'nodejs/node@<code>v0.12</code>/.gitignore'
 	],
 	[
 		'https://github.com/nodejs/node/blob/cc8fc46/.gitignore',
-		'nodejs/node:.gitignore@<code>cc8fc46</code>'
+		'nodejs/node@<code>cc8fc46</code>/.gitignore'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/blame/master/.gitignore',
-		'/.gitignore@<code>master</code> (blame)'
+		'<code>master</code>/.gitignore (blame)'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/blame/v0.12/.gitignore',
-		'/.gitignore@<code>v0.12</code> (blame)'
+		'<code>v0.12</code>/.gitignore (blame)'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/blame/cc8fc46/.gitignore',
-		'/.gitignore@<code>cc8fc46</code> (blame)'
+		'<code>cc8fc46</code>/.gitignore (blame)'
 	],
 	[
 		'https://github.com/nodejs/node/blame/master/.gitignore',
-		'nodejs/node:.gitignore@<code>master</code> (blame)'
+		'nodejs/node@<code>master</code>/.gitignore (blame)'
 	],
 	[
 		'https://github.com/nodejs/node/blame/v0.12/.gitignore',
-		'nodejs/node:.gitignore@<code>v0.12</code> (blame)'
+		'nodejs/node@<code>v0.12</code>/.gitignore (blame)'
 	],
 	[
 		'https://github.com/nodejs/node/blame/cc8fc46/.gitignore',
-		'nodejs/node:.gitignore@<code>cc8fc46</code> (blame)'
+		'nodejs/node@<code>cc8fc46</code>/.gitignore (blame)'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/commits/master/.gitignore',
-		'/.gitignore@<code>master</code> (commits)'
+		'<code>master</code>/.gitignore (commits)'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/commits/v0.12/.gitignore',
-		'/.gitignore@<code>v0.12</code> (commits)'
+		'<code>v0.12</code>/.gitignore (commits)'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/commits/cc8fc46/.gitignore',
-		'/.gitignore@<code>cc8fc46</code> (commits)'
+		'<code>cc8fc46</code>/.gitignore (commits)'
 	],
 	[
 		'https://github.com/nodejs/node/commits/master/.gitignore',
-		'nodejs/node:.gitignore@<code>master</code> (commits)'
+		'nodejs/node@<code>master</code>/.gitignore (commits)'
 	],
 	[
 		'https://github.com/nodejs/node/commits/v0.12/.gitignore',
-		'nodejs/node:.gitignore@<code>v0.12</code> (commits)'
+		'nodejs/node@<code>v0.12</code>/.gitignore (commits)'
 	],
 	[
 		'https://github.com/nodejs/node/commits/cc8fc46/.gitignore',
-		'nodejs/node:.gitignore@<code>cc8fc46</code> (commits)'
+		'nodejs/node@<code>cc8fc46</code>/.gitignore (commits)'
 	],
 	[
 		'https://github.com/fregante/shorten-repo-url/commit/cc8fc46.diff',
@@ -316,51 +316,51 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 	],
 	[
 		'https://rawgit.com/fregante/shorten-repo-url/master/.gitignore',
-		'/.gitignore@<code>master</code> (raw)'
+		'<code>master</code>/.gitignore (raw)'
 	],
 	[
 		'https://cdn.rawgit.com/fregante/shorten-repo-url/v0.12/.gitignore',
-		'/.gitignore@<code>v0.12</code> (raw)'
+		'<code>v0.12</code>/.gitignore (raw)'
 	],
 	[
 		'https://cdn.rawgit.com/fregante/shorten-repo-url/d71718db/.gitignore',
-		'/.gitignore@<code>d71718db</code> (raw)'
+		'<code>d71718db</code>/.gitignore (raw)'
 	],
 	[
 		'https://raw.githubusercontent.com/fregante/shorten-repo-url/master/.gitignore',
-		'/.gitignore@<code>master</code> (raw)'
+		'<code>master</code>/.gitignore (raw)'
 	],
 	[
 		'https://raw.githubusercontent.com/fregante/shorten-repo-url/v0.12/.gitignore',
-		'/.gitignore@<code>v0.12</code> (raw)'
+		'<code>v0.12</code>/.gitignore (raw)'
 	],
 	[
 		'https://raw.githubusercontent.com/fregante/shorten-repo-url/d71718db/.gitignore',
-		'/.gitignore@<code>d71718db</code> (raw)'
+		'<code>d71718db</code>/.gitignore (raw)'
 	],
 	[
 		'https://rawgit.com/nodejs/node/master/.gitignore',
-		'nodejs/node:.gitignore@<code>master</code> (raw)'
+		'nodejs/node@<code>master</code>/.gitignore (raw)'
 	],
 	[
 		'https://cdn.rawgit.com/nodejs/node/v0.12/.gitignore',
-		'nodejs/node:.gitignore@<code>v0.12</code> (raw)'
+		'nodejs/node@<code>v0.12</code>/.gitignore (raw)'
 	],
 	[
 		'https://cdn.rawgit.com/nodejs/node/d71718db/.gitignore',
-		'nodejs/node:.gitignore@<code>d71718db</code> (raw)'
+		'nodejs/node@<code>d71718db</code>/.gitignore (raw)'
 	],
 	[
 		'https://raw.githubusercontent.com/nodejs/node/master/.gitignore',
-		'nodejs/node:.gitignore@<code>master</code> (raw)'
+		'nodejs/node@<code>master</code>/.gitignore (raw)'
 	],
 	[
 		'https://raw.githubusercontent.com/nodejs/node/v0.12/.gitignore',
-		'nodejs/node:.gitignore@<code>v0.12</code> (raw)'
+		'nodejs/node@<code>v0.12</code>/.gitignore (raw)'
 	],
 	[
 		'https://raw.githubusercontent.com/nodejs/node/d71718db/.gitignore',
-		'nodejs/node:.gitignore@<code>d71718db</code> (raw)'
+		'nodejs/node@<code>d71718db</code>/.gitignore (raw)'
 	],
 	[
 		'https://github.com/sindresorhus',
