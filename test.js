@@ -267,6 +267,10 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'#123 (files)'
 	],
 	[
+		'https://github.com/nodejs/node/pull/123/files',
+		'nodejs/node#123 (files)'
+	],
+	[
 		'https://github.com/fregante/shorten-repo-url/pull/123/commits',
 		'#123 (commits)'
 	],
