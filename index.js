@@ -171,15 +171,12 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 
 function applyToLink(a, currentUrl) {
 	// Shorten only if the link name hasn't been customized.
-	// .href automatically adds a / to naked origins
-	// so that needs to be tested too
-	if (a.href === a.textContent || a.href === `${a.textContent}/`) {
+	// .href automatically adds a / to naked origins so that needs to be tested too
+	// `trim` makes it compatible with this feature: https://github.com/sindresorhus/refined-github/pull/3085
+	if (a.href === a.textContent.trim() || a.href === `${a.textContent}/`) {
 		const shortened = shortenURL(a.href, currentUrl);
-		// Only touch the dom is the URL has been shortened
-		if (shortened !== a.textContent) {
-			a.innerHTML = shortened;
-			return true;
-		}
+		a.innerHTML = shortened;
+		return true;
 	}
 
 	return false;
