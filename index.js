@@ -157,7 +157,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	}
 
 	if (pull && pullPage) {
-		return `#${pull} (${pullPage})`;
+		return `${repoUrl}#${pull} (${pullPage})`;
 	}
 
 	if (compare) {
