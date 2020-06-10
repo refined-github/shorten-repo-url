@@ -417,5 +417,17 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 	[
 		'https://github.com/',
 		'github.com'
+	],
+	[
+		'https://github.com/fregante/shorten-repo-url/issues',
+		'fregante/shorten-repo-url/issues'
+	],
+	[
+		'https://github.com/fregante/shorten-repo-url/issues?q=wow',
+		'fregante/shorten-repo-url/issues (wow)'
+	],
+	[
+		'https://github.com/fregante/shorten-repo-url/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc',
+		'fregante/shorten-repo-url/issues (is:open sort:updated-desc)'
 	]
 ]));
