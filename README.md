@@ -8,19 +8,16 @@ Look at [the tests](https://github.com/fregante/shorten-repo-url/blob/master/tes
 
 It works on any domain, so GitHub Enterprise is also supported.
 
-
 ## Install
 
 ```
 $ npm install shorten-repo-url
 ```
 
-
 ## Usage
 
 ```js
 const shortenRepoUrl = require('shorten-repo-url');
-
 
 const HTML = shortenRepoUrl(
 	'https://github.com/nodejs/node/tree/v0.12/doc',
@@ -33,9 +30,7 @@ const HTML = shortenRepoUrl(
 	'https://github.com' // not the same repo
 );
 //=> 'nodejs/node@<code>v0.12</code>' // URL with repo
-
 ```
-
 
 ## API
 
@@ -73,8 +68,6 @@ Type: `string`, like `location.href`
 
 Same as before.
 
-
 ## License
 
 MIT © [Federico Brigante](https://bfred.it)
-

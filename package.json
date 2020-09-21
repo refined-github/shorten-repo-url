@@ -1,47 +1,47 @@
 {
-  "name": "shorten-repo-url",
-  "version": "2.0.0",
-  "description": "Shorten GitHub URLs like GitHub shortens Issues and Commit URLs",
-  "keywords": [
-    "commit",
-    "file",
-    "github",
-    "gitlab",
-    "issue",
-    "link",
-    "links",
-    "ref",
-    "reference",
-    "shorter",
-    "url"
-  ],
-  "repository": "fregante/shorten-repo-url",
-  "license": "MIT",
-  "author": "Federico Brigante <opensource@bfred.it> (bfred.it)",
-  "files": [
-    "index.js",
-    "index.d.ts"
-  ],
-  "scripts": {
-    "test": "xo && tsd && ava"
-  },
-  "xo": {
-    "rules": {
-      "@typescript-eslint/prefer-readonly-parameter-types": "off",
-      "unicorn/better-regex": "off",
-      "complexity": "off"
-    }
-  },
-  "dependencies": {
-    "github-reserved-names": "^2.0.0"
-  },
-  "devDependencies": {
-    "@sindresorhus/tsconfig": "^0.7.0",
-    "ava": "^3.12.1",
-    "tsd": "^0.13.1",
-    "xo": "^0.33.1"
-  },
-  "engines": {
-    "node": ">=10.0.0"
-  }
+	"name": "shorten-repo-url",
+	"version": "2.0.0",
+	"description": "Shorten GitHub URLs like GitHub shortens Issues and Commit URLs",
+	"keywords": [
+		"commit",
+		"file",
+		"github",
+		"gitlab",
+		"issue",
+		"link",
+		"links",
+		"ref",
+		"reference",
+		"shorter",
+		"url"
+	],
+	"repository": "fregante/shorten-repo-url",
+	"license": "MIT",
+	"author": "Federico Brigante <opensource@bfred.it> (bfred.it)",
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"scripts": {
+		"test": "xo && tsd && ava"
+	},
+	"xo": {
+		"rules": {
+			"@typescript-eslint/prefer-readonly-parameter-types": "off",
+			"unicorn/better-regex": "off",
+			"complexity": "off"
+		}
+	},
+	"dependencies": {
+		"github-reserved-names": "^2.0.0"
+	},
+	"devDependencies": {
+		"@sindresorhus/tsconfig": "^0.7.0",
+		"ava": "^3.12.1",
+		"tsd": "^0.13.1",
+		"xo": "^0.33.1"
+	},
+	"engines": {
+		"node": ">=10.0.0"
+	}
 }
