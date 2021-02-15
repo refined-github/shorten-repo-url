@@ -4,7 +4,7 @@
 
 ![Demo](https://user-images.githubusercontent.com/1402241/27252232-8fdf8ed0-538b-11e7-8f19-12d317c9cd32.png)
 
-Look at [the tests](https://github.com/fregante/shorten-repo-url/blob/master/test.js) to see what each URL is shortened to. GitLab URLs are mostly compatible but they're not officially supported.
+Look at [the tests](https://github.com/fregante/shorten-repo-url/blob/main/test.js) to see what each URL is shortened to. GitLab URLs are mostly compatible but they're not officially supported.
 
 It works on any domain, so GitHub Enterprise is also supported.
 
