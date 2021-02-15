@@ -39,12 +39,14 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	/**
 	 * Parse URL
 	 */
+	const url = new URL(href);
 	const {
 		origin,
 		pathname,
 		search,
+		searchParams,
 		hash
-	} = new URL(href);
+	} = url;
 
 	const pathnameParts = pathname.slice(1).split('/'); // ['user', 'repo', 'pull', '342']
 	const repoPath = pathnameParts.slice(2).join('/'); // 'pull/342'
@@ -165,8 +167,20 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		return `${partial}${search}${hash} (compare)`;
 	}
 
+	let query = searchParams.get('q') ?? '';
+	if (query) {
+		searchParams.delete('q');
+		if (pathname.endsWith('/issues')) {
+			query = query.replace('is:issue', '');
+		} else if (pathname.endsWith('/pulls')) {
+			query = query.replace('is:pr', '');
+		}
+
+		query = ` (${query.replace(/\s+/g, ' ').trim()})`;
+	}
+
 	// Drop leading and trailing slash of relative path
-	return `${pathname.replace(/^[/]|[/]$/g, '')}${search}${hash}`;
+	return pathname.replace(/^[/]|[/]$/g, '') + url.search + hash + query;
 }
 
 function applyToLink(a, currentUrl) {
