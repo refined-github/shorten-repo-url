@@ -199,6 +199,10 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node/npm (label)'
 	],
 	[
+		'https://github.com/nodejs/node/labels/Please%21%20♥',
+		'nodejs/node/Please! ♥ (label)'
+	],
+	[
 		'https://github.com/fregante/shorten-repo-url/archive/6.4.1.zip',
 		'<code>6.4.1</code>.zip'
 	],

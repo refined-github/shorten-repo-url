@@ -147,7 +147,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	}
 
 	if (label) {
-		return joinValues([repoUrl, label]) + `${search}${hash} (label)`;
+		return joinValues([repoUrl, decodeURIComponent(label)]) + `${search}${hash} (label)`;
 	}
 
 	if (isDependents) {
