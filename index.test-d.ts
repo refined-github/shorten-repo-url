@@ -1,7 +1,8 @@
 /// <reference lib="dom" />
 
 import {expectType} from 'tsd';
-import {applyToLink} from '.';
+import {applyToLink} from './index.js';
 
-// eslint-disable-next-line no-undef
-expectType<void>(applyToLink(document.createElement('a'), 'https://bettersite.com'));
+expectType<void>(
+	applyToLink(document.createElement('a'), 'https://bettersite.com')
+);

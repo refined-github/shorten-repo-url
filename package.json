@@ -17,7 +17,7 @@
 	],
 	"repository": "fregante/shorten-repo-url",
 	"license": "MIT",
-	"author": "Federico Brigante <opensource@bfred.it> (bfred.it)",
+	"author": "Federico Brigante <me@fregante.com> (https://fregante.com)",
 	"files": [
 		"index.js",
 		"index.d.ts"
@@ -27,19 +27,19 @@
 	},
 	"xo": {
 		"rules": {
-			"@typescript-eslint/prefer-readonly-parameter-types": "off",
+			"@typescript-eslint/no-confusing-void-expression": "off",
 			"unicorn/better-regex": "off",
 			"complexity": "off"
 		}
 	},
 	"dependencies": {
-		"github-reserved-names": "^2.0.0"
+		"github-reserved-names": "^2.0.4"
 	},
 	"devDependencies": {
-		"@sindresorhus/tsconfig": "^0.7.0",
-		"ava": "^3.12.1",
-		"tsd": "^0.13.1",
-		"xo": "^0.33.1"
+		"@sindresorhus/tsconfig": "^0.8.0",
+		"ava": "^3.15.0",
+		"tsd": "^0.14.0",
+		"xo": "^0.37.1"
 	},
 	"engines": {
 		"node": ">=10.0.0"
