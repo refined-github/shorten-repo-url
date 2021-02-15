@@ -1,4 +1,4 @@
-# shorten-repo-url [![Build Status](https://travis-ci.org/fregante/shorten-repo-url.svg?branch=master)](https://travis-ci.org/fregante/shorten-repo-url)
+# shorten-repo-url
 
 > Shorten GitHub links like GitHub shortens Issues and Commit links. Used on [refined-github](https://github.com/sindresorhus/refined-github)
 
@@ -70,4 +70,4 @@ Same as before.
 
 ## License
 
-MIT © [Federico Brigante](https://bfred.it)
+MIT © [Federico Brigante](https://fregante.com)
