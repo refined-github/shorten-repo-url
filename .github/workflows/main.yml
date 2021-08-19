@@ -12,7 +12,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-          cache: 'npm'
       - run: npm install
       - run: npx xo
 
@@ -23,7 +22,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-          cache: 'npm'
       - run: npm install
       - run: npx tsd
 
@@ -34,6 +32,5 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-          cache: 'npm'
       - run: npm install
       - run: npx ava
