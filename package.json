@@ -27,8 +27,8 @@
 	},
 	"xo": {
 		"rules": {
-			"@typescript-eslint/no-confusing-void-expression": "off",
 			"unicorn/better-regex": "off",
+			"unicorn/prefer-module": "off",
 			"complexity": "off"
 		}
 	},
@@ -36,10 +36,10 @@
 		"github-reserved-names": "^2.0.4"
 	},
 	"devDependencies": {
-		"@sindresorhus/tsconfig": "^0.8.0",
+		"@sindresorhus/tsconfig": "^1.0.2",
 		"ava": "^3.15.0",
-		"tsd": "^0.14.0",
-		"xo": "^0.37.1"
+		"tsd": "^0.17.0",
+		"xo": "^0.44.0"
 	},
 	"engines": {
 		"node": ">=10.0.0"

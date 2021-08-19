@@ -45,7 +45,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		pathname,
 		search,
 		searchParams,
-		hash
+		hash,
 	} = url;
 
 	const pathnameParts = pathname.slice(1).split('/'); // ['user', 'repo', 'pull', '342']
@@ -54,7 +54,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const isRaw = [
 		'https://raw.githubusercontent.com',
 		'https://cdn.rawgit.com',
-		'https://rawgit.com'
+		'https://rawgit.com',
 	].includes(origin);
 
 	let [
@@ -96,7 +96,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		'tree',
 		'blob',
 		'blame',
-		'commits'
+		'commits',
 	].includes(type);
 
 	const repoUrl = isThisRepo ? '' : `${user}/${repo}`;
@@ -117,7 +117,10 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	}
 
 	if (isFileOrDir) {
-		const revisioned = joinValues([joinValues([repoUrl, revision], '@'), filePath], '/');
+		const revisioned = joinValues(
+			[joinValues([repoUrl, revision], '@'), filePath],
+			'/',
+		);
 		const partial = `${revisioned}${search}${hash}`;
 		if (type !== 'blob' && type !== 'tree') {
 			return `${partial} (${type})`;
@@ -147,7 +150,10 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	}
 
 	if (label) {
-		return joinValues([repoUrl, decodeURIComponent(label)]) + `${search}${hash} (label)`;
+		return (
+			joinValues([repoUrl, decodeURIComponent(label)])
+			+ `${search}${hash} (label)`
+		);
 	}
 
 	if (isDependents) {
@@ -187,7 +193,10 @@ function applyToLink(a, currentUrl) {
 	// Shorten only if the link name hasn't been customized.
 	// .href automatically adds a / to naked origins so that needs to be tested too
 	// `trim` makes it compatible with this feature: https://github.com/sindresorhus/refined-github/pull/3085
-	if ((a.href === a.textContent.trim() || a.href === `${a.textContent}/`) && !a.firstElementChild) {
+	if (
+		(a.href === a.textContent.trim() || a.href === `${a.textContent}/`)
+		&& !a.firstElementChild
+	) {
 		const shortened = shortenURL(a.href, currentUrl);
 		a.innerHTML = shortened;
 		return true;
