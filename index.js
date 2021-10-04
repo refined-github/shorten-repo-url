@@ -165,7 +165,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	}
 
 	if (pull) {
-		if (pullPartialStart && pullPartialEnd) {
+		if (pullPage === 'files' && pullPartialStart && pullPartialEnd) {
 			return `<code>${pullPartialStart.slice(0, 8)}..${pullPartialEnd.slice(0, 8)}</code> (#${pull})`;
 		}
 
