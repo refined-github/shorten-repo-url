@@ -4,8 +4,9 @@ const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /^releases[/]tag[/]([^/]+)/;
 const labelRegex = /^labels[/]([^/]+)/;
 const compareRegex = /^compare[/]([^/]+)/;
-const issueRegex = /^issues[/](\d+)$/;
 const pullRegex = /^pull[/](\d+)(?:[/]([^/]+))?(?:[/]([\da-f]{40})[.][.]([\da-f]{40}))?$/;
+const issueRegex = /^issues[/](\d+)$/;
+const commitRegex = /^commit[/]([\da-f]{40})$/;
 const releaseArchiveRegex = /^archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /^releases[/]download[/]([^/]+)[/](.+)/;
 const dependentsRegex = /^network[/]dependents[/]?$/;
@@ -96,8 +97,9 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const [, downloadTag, downloadFilename] = repoPath.match(releaseDownloadRegex) || [];
 	const [, label] = repoPath.match(labelRegex) || [];
 	const [, compare] = repoPath.match(compareRegex) || [];
-	const [, issue] = repoPath.match(issueRegex) || [];
 	const [, pull, pullPage, pullPartialStart, pullPartialEnd] = repoPath.match(pullRegex) || [];
+	const [, issue] = isRedirection ? repoPath.match(issueRegex) || [] : [];
+	const [, commit] = isRedirection ? repoPath.match(commitRegex) || [] : [];
 	const isFileOrDir = revision && [
 		'raw',
 		'tree',
@@ -194,6 +196,10 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 
 		if (pull) {
 			return `${repoUrl}#${pull}`;
+		}
+
+		if (commit) {
+			return `<code>${commit.slice(0, 7)}</code>`;
 		}
 	}
 

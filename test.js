@@ -451,11 +451,15 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'#32 (files)',
 	],
 	[
-		'https://togithub.com/nodejs/node/pull/123/files',
+		'https://togithub.com/nodejs/node/pull/123',
 		'nodejs/node#123',
 	],
 	[
 		'https://togithub.com/nodejs/node/pull/123/files',
 		'nodejs/node#123 (files)',
+	],
+	[
+		'https://togithub.com/refined-github/shorten-repo-url/commit/98c6175b0cbd4caca71d24e68e57b942b0dfb549',
+		'<code>98c6175</code>',
 	],
 ]));
