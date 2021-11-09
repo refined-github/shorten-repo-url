@@ -4,7 +4,8 @@ const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /^releases[/]tag[/]([^/]+)/;
 const labelRegex = /^labels[/]([^/]+)/;
 const compareRegex = /^compare[/]([^/]+)/;
-const pullRegex = /^pull[/](\d+)[/]([^/]+)(?:[/]([\da-f]{40})[.][.]([\da-f]{40}))?$/;
+const issueRegex = /^issues[/](\d+)$/;
+const pullRegex = /^pull[/](\d+)(?:[/]([^/]+))?(?:[/]([\da-f]{40})[.][.]([\da-f]{40}))?$/;
 const releaseArchiveRegex = /^archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /^releases[/]download[/]([^/]+)[/](.+)/;
 const dependentsRegex = /^network[/]dependents[/]?$/;
@@ -95,6 +96,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const [, downloadTag, downloadFilename] = repoPath.match(releaseDownloadRegex) || [];
 	const [, label] = repoPath.match(labelRegex) || [];
 	const [, compare] = repoPath.match(compareRegex) || [];
+	const [, issue] = repoPath.match(issueRegex) || [];
 	const [, pull, pullPage, pullPartialStart, pullPartialEnd] = repoPath.match(pullRegex) || [];
 	const isFileOrDir = revision && [
 		'raw',
@@ -182,6 +184,19 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	if (compare) {
 		const partial = joinValues([repoUrl, revision], '@');
 		return `${partial}${search}${hash} (compare)`;
+	}
+
+	// Shorten URLs that would be otherwise natively shortened
+	if (isRedirection) {
+		console.log(issue, pull);
+
+		if (issue) {
+			return `${repoUrl}#${issue}`;
+		}
+
+		if (pull) {
+			return `${repoUrl}#${pull}`;
+		}
 	}
 
 	let query = searchParams.get('q') ?? '';
