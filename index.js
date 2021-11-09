@@ -188,8 +188,6 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 
 	// Shorten URLs that would be otherwise natively shortened
 	if (isRedirection) {
-		console.log(issue, pull);
-
 		if (issue) {
 			return `${repoUrl}#${issue}`;
 		}
