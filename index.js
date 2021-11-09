@@ -57,6 +57,11 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		'https://rawgit.com',
 	].includes(origin);
 
+	const isRedirection = [
+		'https://togithub.com', // Renovate
+		'https://github-redirect.dependabot.com', // Dependabot
+	].includes(origin);
+
 	let [
 		user,
 		repo,
@@ -80,7 +85,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	filePath = filePath.join('/');
 
 	const isLocal = origin === currentUrl.origin;
-	const isThisRepo = (isLocal || isRaw) && currentRepo === `${user}/${repo}`;
+	const isThisRepo = (isLocal || isRaw || isRedirection) && currentRepo === `${user}/${repo}`;
 	const isReserved = reservedPaths.includes(user);
 	const isDependents = dependentsRegex.test(repoPath);
 	const isDependencies = dependenciesRegex.test(repoPath);
@@ -105,7 +110,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	 * Shorten URL
 	 */
 
-	if (isReserved || pathname === '/' || (!isLocal && !isRaw)) {
+	if (isReserved || pathname === '/' || (!isLocal && !isRaw && !isRedirection)) {
 		return href
 			.replace(/^https:[/][/]/, '')
 			.replace(/^www[.]/, '')
