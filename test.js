@@ -439,6 +439,10 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'<code>6b4489d4..60cdcf3c</code> (#253)',
 	],
 	[
+		'https://togithub.com/fregante/shorten-repo-url/pull/32',
+		'#32',
+	],
+	[
 		'https://togithub.com/fregante/shorten-repo-url/pull/32/files',
 		'#32 (files)',
 	],
