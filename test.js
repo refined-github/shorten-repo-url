@@ -443,12 +443,20 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'#25',
 	],
 	[
+		'https://togithub.com/fregante/shorten-repo-url/issues/28#issue-850900171',
+		'#28 (comment)',
+	],
+	[
 		'https://togithub.com/fregante/shorten-repo-url/pull/32',
 		'#32',
 	],
 	[
 		'https://togithub.com/fregante/shorten-repo-url/pull/32/files',
 		'#32 (files)',
+	],
+	[
+		'https://togithub.com/fregante/shorten-repo-url/pull/33#pullrequestreview-801229042',
+		'#33 (review)',
 	],
 	[
 		'https://togithub.com/nodejs/node/pull/123',
@@ -465,5 +473,9 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 	[
 		'https://togithub.com/refined-github/refined-github/commit/4f270c4f50e0a2a20085a6e92095117f10340322',
 		'refined-github/refined-github@<code>4f270c4</code>',
+	],
+	[
+		'https://togithub.com/refined-github/refined-github/commit/e81a9646b448d90c7e02ab41332cab0507dccbbd#commitcomment-60089354',
+		'refined-github/refined-github@<code>e81a964</code> (comment)',
 	],
 ]));

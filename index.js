@@ -25,6 +25,18 @@ function styleRevision(revision) {
 	return `<code>${revision}</code>`;
 }
 
+function commentIndicator(hash) {
+	if (hash.startsWith('#issue-') || hash.startsWith('#commitcomment-')) {
+		return ' (comment)';
+	}
+
+	if (hash.startsWith('#pullrequestreview-')) {
+		return ' (review)';
+	}
+
+	return '';
+}
+
 // Filter out null values
 function joinValues(array, delimiter = '/') {
 	return array.filter(s => s).join(delimiter);
@@ -191,15 +203,15 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	// Shorten URLs that would be otherwise natively shortened
 	if (isRedirection) {
 		if (issue) {
-			return `${repoUrl}#${issue}`;
+			return `${repoUrl}#${issue}${commentIndicator(hash)}`;
 		}
 
 		if (pull) {
-			return `${repoUrl}#${pull}`;
+			return `${repoUrl}#${pull}${commentIndicator(hash)}`;
 		}
 
 		if (commit) {
-			return joinValues([repoUrl, `<code>${commit.slice(0, 7)}</code>`], '@');
+			return joinValues([repoUrl, `<code>${commit.slice(0, 7)}</code>`], '@') + commentIndicator(hash);
 		}
 	}
 
