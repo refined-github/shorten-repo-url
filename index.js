@@ -188,7 +188,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		return `${partial}${search}${hash} (compare)`;
 	}
 
-	// Shorten URLs that would be otherwise natively shortened
+	// Shorten URLs that would otherwise be natively shortened
 	if (isRedirection) {
 		if (issue) {
 			return `${repoUrl}#${issue}`;
