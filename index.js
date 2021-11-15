@@ -199,7 +199,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		}
 
 		if (commit) {
-			return `<code>${commit.slice(0, 7)}</code>`;
+			return joinValues([repoUrl, `<code>${commit.slice(0, 7)}</code>`], '@');
 		}
 	}
 

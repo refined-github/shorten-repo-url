@@ -459,7 +459,11 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'nodejs/node#123 (files)',
 	],
 	[
-		'https://togithub.com/refined-github/shorten-repo-url/commit/98c6175b0cbd4caca71d24e68e57b942b0dfb549',
+		'https://togithub.com/fregante/shorten-repo-url/commit/98c6175b0cbd4caca71d24e68e57b942b0dfb549',
 		'<code>98c6175</code>',
+	],
+	[
+		'https://togithub.com/refined-github/refined-github/commit/4f270c4f50e0a2a20085a6e92095117f10340322',
+		'refined-github/refined-github@<code>4f270c4</code>',
 	],
 ]));
