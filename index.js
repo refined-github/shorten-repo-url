@@ -4,7 +4,9 @@ const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /^releases[/]tag[/]([^/]+)/;
 const labelRegex = /^labels[/]([^/]+)/;
 const compareRegex = /^compare[/]([^/]+)/;
-const pullRegex = /^pull[/](\d+)[/]([^/]+)(?:[/]([\da-f]{40})[.][.]([\da-f]{40}))?$/;
+const pullRegex = /^pull[/](\d+)(?:[/]([^/]+))?(?:[/]([\da-f]{40})[.][.]([\da-f]{40}))?$/;
+const issueRegex = /^issues[/](\d+)$/;
+const commitRegex = /^commit[/]([\da-f]{40})$/;
 const releaseArchiveRegex = /^archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /^releases[/]download[/]([^/]+)[/](.+)/;
 const dependentsRegex = /^network[/]dependents[/]?$/;
@@ -21,6 +23,18 @@ function styleRevision(revision) {
 	}
 
 	return `<code>${revision}</code>`;
+}
+
+function commentIndicator(hash) {
+	if (hash.startsWith('#issue-') || hash.startsWith('#commitcomment-')) {
+		return ' (comment)';
+	}
+
+	if (hash.startsWith('#pullrequestreview-')) {
+		return ' (review)';
+	}
+
+	return '';
 }
 
 // Filter out null values
@@ -57,6 +71,11 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		'https://rawgit.com',
 	].includes(origin);
 
+	const isRedirection = [
+		'https://togithub.com', // Renovate
+		'https://github-redirect.dependabot.com', // Dependabot
+	].includes(origin);
+
 	let [
 		user,
 		repo,
@@ -80,7 +99,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	filePath = filePath.join('/');
 
 	const isLocal = origin === currentUrl.origin;
-	const isThisRepo = (isLocal || isRaw) && currentRepo === `${user}/${repo}`;
+	const isThisRepo = (isLocal || isRaw || isRedirection) && currentRepo === `${user}/${repo}`;
 	const isReserved = reservedPaths.includes(user);
 	const isDependents = dependentsRegex.test(repoPath);
 	const isDependencies = dependenciesRegex.test(repoPath);
@@ -91,6 +110,8 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const [, label] = repoPath.match(labelRegex) || [];
 	const [, compare] = repoPath.match(compareRegex) || [];
 	const [, pull, pullPage, pullPartialStart, pullPartialEnd] = repoPath.match(pullRegex) || [];
+	const [, issue] = isRedirection ? repoPath.match(issueRegex) || [] : [];
+	const [, commit] = isRedirection ? repoPath.match(commitRegex) || [] : [];
 	const isFileOrDir = revision && [
 		'raw',
 		'tree',
@@ -105,7 +126,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	 * Shorten URL
 	 */
 
-	if (isReserved || pathname === '/' || (!isLocal && !isRaw)) {
+	if (isReserved || pathname === '/' || (!isLocal && !isRaw && !isRedirection)) {
 		return href
 			.replace(/^https:[/][/]/, '')
 			.replace(/^www[.]/, '')
@@ -177,6 +198,21 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	if (compare) {
 		const partial = joinValues([repoUrl, revision], '@');
 		return `${partial}${search}${hash} (compare)`;
+	}
+
+	// Shorten URLs that would otherwise be natively shortened
+	if (isRedirection) {
+		if (issue) {
+			return `${repoUrl}#${issue}${commentIndicator(hash)}`;
+		}
+
+		if (pull) {
+			return `${repoUrl}#${pull}${commentIndicator(hash)}`;
+		}
+
+		if (commit) {
+			return joinValues([repoUrl, `<code>${commit.slice(0, 7)}</code>`], '@') + commentIndicator(hash);
+		}
 	}
 
 	let query = searchParams.get('q') ?? '';
