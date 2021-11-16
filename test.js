@@ -459,6 +459,10 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'#33 (review)',
 	],
 	[
+		'https://togithub.com/fregante/shorten-repo-url/pull/33#discussion_r750069394',
+		'#33 (review)',
+	],
+	[
 		'https://togithub.com/nodejs/node/pull/123',
 		'nodejs/node#123',
 	],

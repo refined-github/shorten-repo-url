@@ -30,7 +30,7 @@ function commentIndicator(hash) {
 		return ' (comment)';
 	}
 
-	if (hash.startsWith('#pullrequestreview-')) {
+	if (hash.startsWith('#pullrequestreview-') || hash.startsWith('#discussion_r')) {
 		return ' (review)';
 	}
 
