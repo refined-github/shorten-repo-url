@@ -1,6 +1,6 @@
 {
 	"name": "shorten-repo-url",
-	"version": "2.2.0",
+	"version": "2.3.0",
 	"description": "Shorten GitHub URLs like GitHub shortens Issues and Commit URLs",
 	"keywords": [
 		"commit",
