@@ -15,7 +15,8 @@
 		"shorter",
 		"url"
 	],
-	"repository": "fregante/shorten-repo-url",
+	"repository": "refined-github/shorten-repo-url",
+	"funding": "https://github.com/sponsors/fregante",
 	"license": "MIT",
 	"author": "Federico Brigante <me@fregante.com> (https://fregante.com)",
 	"files": [
