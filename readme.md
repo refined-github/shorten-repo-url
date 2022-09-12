@@ -52,7 +52,9 @@ The URL of the current page, to build relative URLs like `<code>v0.12</code>` in
 
 ### shortenRepoUrl.applyToLink(link, currentUrl)
 
-Automatically shorten the link's text if the text matches the URL, i.e. `<a href="https://github.com">https://github.com</a>`
+Automatically shorten the link's text if the text matches the URL, i.e. `<a href="https://github.com">https://github.com</a>`. If a `data-original-href` attribute is present, it will be used when comparing the link’s text and when generating the shortened URL.
+
+Note: this function will never change the `href` of the link, it only changes the text.
 
 It will return `true` or `false` depending on whether the link was shortened.
 
