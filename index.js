@@ -39,7 +39,7 @@ function commentIndicator(hash) {
 
 // Filter out null values
 function joinValues(array, delimiter = '/') {
-	return array.filter(s => s).join(delimiter);
+	return array.filter(Boolean).join(delimiter);
 }
 
 function shortenURL(href, currentUrl = 'https://github.com') {
@@ -235,8 +235,9 @@ function applyToLink(a, currentUrl) {
 	// Shorten only if the link name hasn't been customized.
 	// .href automatically adds a / to naked origins so that needs to be tested too
 	// `trim` makes it compatible with this feature: https://github.com/sindresorhus/refined-github/pull/3085
+	const url = a.dataset.originalHref ?? a.href;
 	if (
-		(a.href === a.textContent.trim() || a.href === `${a.textContent}/`)
+		(url === a.textContent.trim() || url === `${a.textContent}/`)
 		&& !a.firstElementChild
 	) {
 		const url = a.dataset.baseUrl || a.href;
