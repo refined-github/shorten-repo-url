@@ -239,7 +239,7 @@ function applyToLink(a, currentUrl) {
 		(a.href === a.textContent.trim() || a.href === `${a.textContent}/`)
 		&& !a.firstElementChild
 	) {
-		let url = a.dataset.baseUrl || a.href
+		const url = a.dataset.baseUrl || a.href;
 		const shortened = shortenURL(url, currentUrl);
 		a.innerHTML = shortened;
 		return true;
