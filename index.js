@@ -39,7 +39,7 @@ function commentIndicator(hash) {
 
 // Filter out null values
 function joinValues(array, delimiter = '/') {
-	return array.filter(s => s).join(delimiter);
+	return array.filter(Boolean).join(delimiter);
 }
 
 function shortenURL(href, currentUrl = 'https://github.com') {
