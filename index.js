@@ -235,11 +235,12 @@ function applyToLink(a, currentUrl) {
 	// Shorten only if the link name hasn't been customized.
 	// .href automatically adds a / to naked origins so that needs to be tested too
 	// `trim` makes it compatible with this feature: https://github.com/sindresorhus/refined-github/pull/3085
+	const url = a.dataset.originalHref ?? a.href;
 	if (
-		(a.href === a.textContent.trim() || a.href === `${a.textContent}/`)
+		(url === a.textContent.trim() || url === `${a.textContent}/`)
 		&& !a.firstElementChild
 	) {
-		const shortened = shortenURL(a.href, currentUrl);
+		const shortened = shortenURL(url, currentUrl);
 		a.innerHTML = shortened;
 		return true;
 	}
