@@ -30,6 +30,7 @@
 		"rules": {
 			"unicorn/better-regex": "off",
 			"unicorn/prefer-module": "off",
+            "unicorn/prefer-string-replace-all": "off",
 			"complexity": "off"
 		}
 	},
@@ -40,7 +41,7 @@
 		"@sindresorhus/tsconfig": "^3.0.1",
 		"ava": "^4.3.3",
 		"tsd": "^0.23.0",
-		"xo": "^0.52.3"
+		"xo": "^0.56.0"
 	},
 	"engines": {
 		"node": ">=14.0.0"
