@@ -482,4 +482,16 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'https://togithub.com/refined-github/refined-github/commit/e81a9646b448d90c7e02ab41332cab0507dccbbd#commitcomment-60089354',
 		'refined-github/refined-github@<code>e81a964</code> (comment)',
 	],
+	[
+		'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22#3-it-doesnt-require-options',
+		'refined-github/refined-github (wiki) "Can you add this feature?" (3 it doesnt require options)'
+	],
+	[
+		'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22#',
+		'refined-github/refined-github (wiki) "Can you add this feature?"'
+	],
+	[
+		'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22',
+		'refined-github/refined-github (wiki) "Can you add this feature?"'
+	],
 ]));
