@@ -11,7 +11,7 @@ const releaseArchiveRegex = /^archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /^releases[/]download[/]([^/]+)[/](.+)/;
 const dependentsRegex = /^network[/]dependents[/]?$/;
 const dependenciesRegex = /^network[/]dependencies[/]?$/;
-const wikiRegex = /^wiki[/](.+)?$/;
+const wikiRegex = /^wiki[/](.+)$/;
 
 function styleRevision(revision) {
 	if (!revision) {
