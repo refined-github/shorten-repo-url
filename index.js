@@ -230,11 +230,11 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 			query = query.replace('is:pr', '');
 		}
 
-		query = ` (${query.replace(/\s+/g, ' ').trim()})`;
+		query = ` (${query.replaceAll(/\s+/g, ' ').trim()})`;
 	}
 
 	// Drop leading and trailing slash of relative path
-	return pathname.replace(/^[/]|[/]$/g, '') + url.search + hash + query;
+	return pathname.replaceAll(/^[/]|[/]$/g, '') + url.search + hash + query;
 }
 
 function applyToLink(a, currentUrl) {
