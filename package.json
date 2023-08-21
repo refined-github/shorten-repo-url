@@ -30,7 +30,7 @@
 		"rules": {
 			"unicorn/better-regex": "off",
 			"unicorn/prefer-module": "off",
-            "unicorn/prefer-string-replace-all": "off",
+			"unicorn/prefer-string-replace-all": "off",
 			"complexity": "off"
 		}
 	},
