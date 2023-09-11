@@ -216,7 +216,6 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	}
 
 	let query = searchParams.get('q') ?? '';
-
 	if (query) {
 		searchParams.delete('q');
 		if (pathname.endsWith('/issues')) {
