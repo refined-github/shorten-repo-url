@@ -11,6 +11,7 @@ const releaseArchiveRegex = /^archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /^releases[/]download[/]([^/]+)[/](.+)/;
 const dependentsRegex = /^network[/]dependents[/]?$/;
 const dependenciesRegex = /^network[/]dependencies[/]?$/;
+const wikiRegex = /^wiki[/](.+)$/;
 
 function styleRevision(revision) {
 	if (!revision) {
@@ -30,7 +31,7 @@ function commentIndicator(hash) {
 		return ' (comment)';
 	}
 
-	if (hash.startsWith('#pullrequestreview-')) {
+	if (hash.startsWith('#pullrequestreview-') || hash.startsWith('#discussion_r')) {
 		return ' (review)';
 	}
 
@@ -39,7 +40,7 @@ function commentIndicator(hash) {
 
 // Filter out null values
 function joinValues(array, delimiter = '/') {
-	return array.filter(s => s).join(delimiter);
+	return array.filter(Boolean).join(delimiter);
 }
 
 function shortenURL(href, currentUrl = 'https://github.com') {
@@ -112,6 +113,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const {pull, pullPage, pullPartialStart, pullPartialEnd} = repoPath.match(pullRegex)?.groups ?? {}
 	const [, issue] = isRedirection ? repoPath.match(issueRegex) || [] : [];
 	const [, commit] = isRedirection ? repoPath.match(commitRegex) || [] : [];
+	const [, wiki] = repoPath.match(wikiRegex) || [];
 	const isFileOrDir = revision && [
 		'raw',
 		'tree',
@@ -200,6 +202,10 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		return `${partial}${search}${hash} (compare)`;
 	}
 
+	if (wiki) {
+		return `Wiki: ${decodeURIComponent((wiki + (hash ? ' (' + hash.slice(1) + ')' : '')).replaceAll('-', ' '))} (${repoUrl})`;
+	}
+
 	// Shorten URLs that would otherwise be natively shortened
 	if (isRedirection) {
 		if (issue) {
@@ -224,22 +230,27 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 			query = query.replace('is:pr', '');
 		}
 
-		query = ` (${query.replace(/\s+/g, ' ').trim()})`;
+		query = ` (${query.replaceAll(/\s+/g, ' ').trim()})`;
+	}
+
+	if (searchParams.get('tab') === 'readme-ov-file') {
+		searchParams.delete('tab');
 	}
 
 	// Drop leading and trailing slash of relative path
-	return pathname.replace(/^[/]|[/]$/g, '') + url.search + hash + query;
+	return pathname.replaceAll(/^[/]|[/]$/g, '') + url.search + hash + query;
 }
 
 function applyToLink(a, currentUrl) {
 	// Shorten only if the link name hasn't been customized.
 	// .href automatically adds a / to naked origins so that needs to be tested too
 	// `trim` makes it compatible with this feature: https://github.com/sindresorhus/refined-github/pull/3085
+	const url = a.dataset.originalHref ?? a.href;
 	if (
-		(a.href === a.textContent.trim() || a.href === `${a.textContent}/`)
+		(url === a.textContent.trim() || url === `${a.textContent}/`)
 		&& !a.firstElementChild
 	) {
-		const shortened = shortenURL(a.href, currentUrl);
+		const shortened = shortenURL(url, currentUrl);
 		a.innerHTML = shortened;
 		return true;
 	}

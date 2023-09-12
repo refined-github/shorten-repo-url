@@ -15,6 +15,10 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'fregante/shorten-repo-url',
 	],
 	[
+		'https://github.com/fregante/shorten-repo-url/?tab=readme-ov-file',
+		'fregante/shorten-repo-url',
+	],
+	[
 		'https://github.com/fregante/shorten-repo-url/tree/v0.12',
 		'<code>v0.12</code>',
 	],
@@ -459,6 +463,10 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'#33 (review)',
 	],
 	[
+		'https://togithub.com/fregante/shorten-repo-url/pull/33#discussion_r750069394',
+		'#33 (review)',
+	],
+	[
 		'https://togithub.com/nodejs/node/pull/123',
 		'nodejs/node#123',
 	],
@@ -477,5 +485,17 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 	[
 		'https://togithub.com/refined-github/refined-github/commit/e81a9646b448d90c7e02ab41332cab0507dccbbd#commitcomment-60089354',
 		'refined-github/refined-github@<code>e81a964</code> (comment)',
+	],
+	[
+		'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22#3-it-doesnt-require-options',
+		'Wiki: "Can you add this feature?" (3 it doesnt require options) (refined-github/refined-github)',
+	],
+	[
+		'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22#',
+		'Wiki: "Can you add this feature?" (refined-github/refined-github)',
+	],
+	[
+		'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22',
+		'Wiki: "Can you add this feature?" (refined-github/refined-github)',
 	],
 ]));

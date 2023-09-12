@@ -1,6 +1,6 @@
 {
 	"name": "shorten-repo-url",
-	"version": "2.3.0",
+	"version": "3.0.0",
 	"description": "Shorten GitHub URLs like GitHub shortens Issues and Commit URLs",
 	"keywords": [
 		"commit",
@@ -15,7 +15,8 @@
 		"shorter",
 		"url"
 	],
-	"repository": "fregante/shorten-repo-url",
+	"repository": "refined-github/shorten-repo-url",
+	"funding": "https://github.com/sponsors/fregante",
 	"license": "MIT",
 	"author": "Federico Brigante <me@fregante.com> (https://fregante.com)",
 	"files": [
@@ -36,12 +37,12 @@
 		"github-reserved-names": "^2.0.4"
 	},
 	"devDependencies": {
-		"@sindresorhus/tsconfig": "^1.0.2",
-		"ava": "^3.15.0",
-		"tsd": "^0.17.0",
-		"xo": "^0.44.0"
+		"@sindresorhus/tsconfig": "^3.0.1",
+		"ava": "^4.3.3",
+		"tsd": "^0.23.0",
+		"xo": "^0.56.0"
 	},
 	"engines": {
-		"node": ">=10.0.0"
+		"node": ">=14.0.0"
 	}
 }
