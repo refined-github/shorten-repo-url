@@ -484,14 +484,14 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 	],
 	[
 		'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22#3-it-doesnt-require-options',
-		'refined-github/refined-github (wiki) "Can you add this feature?" (3 it doesnt require options)',
+		'Wiki: "Can you add this feature?" (3 it doesnt require options) (refined-github/refined-github)',
 	],
 	[
 		'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22#',
-		'refined-github/refined-github (wiki) "Can you add this feature?"',
+		'Wiki: "Can you add this feature?" (refined-github/refined-github)',
 	],
 	[
 		'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22',
-		'refined-github/refined-github (wiki) "Can you add this feature?"',
+		'Wiki: "Can you add this feature?" (refined-github/refined-github)',
 	],
 ]));
