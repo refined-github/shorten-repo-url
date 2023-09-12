@@ -227,6 +227,10 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		query = ` (${query.replaceAll(/\s+/g, ' ').trim()})`;
 	}
 
+	if (searchParams.get('tab') === 'readme-ov-file') {
+		searchParams.delete('tab');
+	}
+
 	// Drop leading and trailing slash of relative path
 	return pathname.replaceAll(/^[/]|[/]$/g, '') + url.search + hash + query;
 }

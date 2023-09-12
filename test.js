@@ -15,6 +15,10 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'fregante/shorten-repo-url',
 	],
 	[
+		'https://github.com/fregante/shorten-repo-url/?tab=readme-ov-file',
+		'fregante/shorten-repo-url',
+	],
+	[
 		'https://github.com/fregante/shorten-repo-url/tree/v0.12',
 		'<code>v0.12</code>',
 	],
