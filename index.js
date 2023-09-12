@@ -11,6 +11,7 @@ const releaseArchiveRegex = /^archive[/](.+)([.]zip|[.]tar[.]gz)/;
 const releaseDownloadRegex = /^releases[/]download[/]([^/]+)[/](.+)/;
 const dependentsRegex = /^network[/]dependents[/]?$/;
 const dependenciesRegex = /^network[/]dependencies[/]?$/;
+const wikiRegex = /^wiki[/](.+)$/;
 
 function styleRevision(revision) {
 	if (!revision) {
@@ -112,6 +113,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const [, pull, pullPage, pullPartialStart, pullPartialEnd] = repoPath.match(pullRegex) || [];
 	const [, issue] = isRedirection ? repoPath.match(issueRegex) || [] : [];
 	const [, commit] = isRedirection ? repoPath.match(commitRegex) || [] : [];
+	const [, wiki] = repoPath.match(wikiRegex) || [];
 	const isFileOrDir = revision && [
 		'raw',
 		'tree',
@@ -198,6 +200,10 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	if (compare) {
 		const partial = joinValues([repoUrl, revision], '@');
 		return `${partial}${search}${hash} (compare)`;
+	}
+
+	if (wiki) {
+		return `Wiki: ${decodeURIComponent((wiki + (hash ? ' (' + hash.slice(1) + ')' : '')).replaceAll('-', ' '))} (${repoUrl})`;
 	}
 
 	// Shorten URLs that would otherwise be natively shortened
