@@ -13,6 +13,25 @@ const dependentsRegex = /^network[/]dependents[/]?$/;
 const dependenciesRegex = /^network[/]dependencies[/]?$/;
 const wikiRegex = /^wiki[/](.+)$/;
 
+function pullQueryOut(searchParameters, pathname) {
+	let query = searchParameters.get('q');
+
+	if (!query) {
+		return '';
+	}
+
+	searchParameters.delete('q');
+	if (pathname.endsWith('/issues')) {
+		query = query.replace('is:issue', '');
+	}
+
+	if (pathname.endsWith('/pulls')) {
+		query = query.replace('is:pr', '');
+	}
+
+	return ` (${query.replaceAll(/\s+/g, ' ').trim()})`;
+}
+
 function styleRevision(revision) {
 	if (!revision) {
 		return;
@@ -127,12 +146,24 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	/**
 	 * Shorten URL
 	 */
-
 	if (isReserved || pathname === '/' || (!isLocal && !isRaw && !isRedirection)) {
-		return href
-			.replace(/^https:[/][/]/, '')
-			.replace(/^www[.]/, '')
-			.replace(/[/]$/, '');
+		const parsedUrl = new URL(href);
+		const cleanHref = [
+			parsedUrl.origin
+				.replace(/^https:[/][/]/, '')
+				.replace(/^www[.]/, ''),
+			parsedUrl.pathname
+				.replace(/[/]$/, ''),
+		];
+
+		if (['issues', 'pulls'].includes(user) && !repo) {
+			const query = pullQueryOut(parsedUrl.searchParams, parsedUrl.pathname);
+			cleanHref.push(parsedUrl.search, query);
+		} else {
+			cleanHref.push(parsedUrl.search);
+		}
+
+		return cleanHref.join('');
 	}
 
 	if (user && !repo) {
@@ -224,17 +255,8 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 		}
 	}
 
-	let query = searchParams.get('q') ?? '';
-	if (query) {
-		searchParams.delete('q');
-		if (pathname.endsWith('/issues')) {
-			query = query.replace('is:issue', '');
-		} else if (pathname.endsWith('/pulls')) {
-			query = query.replace('is:pr', '');
-		}
 
-		query = ` (${query.replaceAll(/\s+/g, ' ').trim()})`;
-	}
+	const query = pullQueryOut(searchParams, pathname);
 
 	if (searchParams.get('tab') === 'readme-ov-file') {
 		searchParams.delete('tab');

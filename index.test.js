@@ -439,6 +439,14 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'fregante/shorten-repo-url/issues?unrelated=true (is:open sort:updated-desc)',
 	],
 	[
+		'https://github.com/issues?q=is%3Aissue++is%3Aopen+sort%3Aupdated-desc+&unrelated=true',
+		'github.com/issues?unrelated=true (is:open sort:updated-desc)',
+	],
+	[
+		'https://github.com/pulls?q=is%3Apr++is%3Aopen+sort%3Aupdated-desc+&unrelated=true',
+		'github.com/pulls?unrelated=true (is:open sort:updated-desc)',
+	],
+	[
 		'https://github.com/sindresorhus/notifier-for-github/pull/253/files/6b4489d417c9425dc27c5fb8d6b4a8518debd035..60cdcf3c3646164441bf8f037cef620479cdec59',
 		'<code>6b4489d4..60cdcf3c</code> (#253)',
 	],
