@@ -1,4 +1,4 @@
-const reservedPaths = require('github-reserved-names/reserved-names.json');
+import reservedNames from 'github-reserved-names/reserved-names.json' with { type: 'json' };
 
 const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /^releases[/]tag[/]([^/]+)/;
@@ -43,7 +43,7 @@ function joinValues(array, delimiter = '/') {
 	return array.filter(Boolean).join(delimiter);
 }
 
-function shortenURL(href, currentUrl = 'https://github.com') {
+function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	if (!href) {
 		return;
 	}
@@ -101,12 +101,12 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 
 	const isLocal = origin === currentUrl.origin;
 	const isThisRepo = (isLocal || isRaw || isRedirection) && currentRepo === `${user}/${repo}`;
-	const isReserved = reservedPaths.includes(user);
+	const isReserved = reservedNames.includes(user);
 	const isDependents = dependentsRegex.test(repoPath);
 	const isDependencies = dependenciesRegex.test(repoPath);
 	const [, diffOrPatch] = repoPath.match(patchDiffRegex) || [];
 	const [, release] = repoPath.match(releaseRegex) || [];
-	const [, releaseTag, releaseTagExt] = repoPath.match(releaseArchiveRegex) || [];
+	const [, releaseTag, releaseTagExtension] = repoPath.match(releaseArchiveRegex) || [];
 	const [, downloadTag, downloadFilename] = repoPath.match(releaseDownloadRegex) || [];
 	const [, label] = repoPath.match(labelRegex) || [];
 	const [, compare] = repoPath.match(compareRegex) || [];
@@ -114,7 +114,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	const [, issue] = isRedirection ? repoPath.match(issueRegex) || [] : [];
 	const [, commit] = isRedirection ? repoPath.match(commitRegex) || [] : [];
 	const [, wiki] = repoPath.match(wikiRegex) || [];
-	const isFileOrDir = revision && [
+	const isFileOrDirectory = revision && [
 		'raw',
 		'tree',
 		'blob',
@@ -139,7 +139,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		return `@${user}${search}${hash}`;
 	}
 
-	if (isFileOrDir) {
+	if (isFileOrDirectory) {
 		const revisioned = joinValues(
 			[joinValues([repoUrl, revision], '@'), filePath],
 			'/',
@@ -162,9 +162,9 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 		return `${partial}${search}${hash} (release)`;
 	}
 
-	if (releaseTagExt) {
+	if (releaseTagExtension) {
 		const partial = joinValues([repoUrl, `<code>${releaseTag}</code>`], '@');
-		return `${partial}${releaseTagExt}${search}${hash}`;
+		return `${partial}${releaseTagExtension}${search}${hash}`;
 	}
 
 	if (downloadFilename) {
@@ -241,7 +241,7 @@ function shortenURL(href, currentUrl = 'https://github.com') {
 	return pathname.replaceAll(/^[/]|[/]$/g, '') + url.search + hash + query;
 }
 
-function applyToLink(a, currentUrl) {
+export function applyToLink(a, currentUrl) {
 	// Shorten only if the link name hasn't been customized.
 	// .href automatically adds a / to naked origins so that needs to be tested too
 	// `trim` makes it compatible with this feature: https://github.com/sindresorhus/refined-github/pull/3085
@@ -250,7 +250,7 @@ function applyToLink(a, currentUrl) {
 		(url === a.textContent.trim() || url === `${a.textContent}/`)
 		&& !a.firstElementChild
 	) {
-		const shortened = shortenURL(url, currentUrl);
+		const shortened = shortenRepoUrl(url, currentUrl);
 		a.innerHTML = shortened;
 		return true;
 	}
@@ -258,5 +258,4 @@ function applyToLink(a, currentUrl) {
 	return false;
 }
 
-module.exports = shortenURL;
-module.exports.applyToLink = applyToLink;
+export default shortenRepoUrl;
