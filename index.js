@@ -255,7 +255,6 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 		}
 	}
 
-
 	const query = pullQueryOut(searchParams, pathname);
 
 	if (searchParams.get('tab') === 'readme-ov-file') {
