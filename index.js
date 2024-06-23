@@ -203,7 +203,10 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	}
 
 	if (wiki) {
-		return `Wiki: ${decodeURIComponent((wiki + (hash ? ' (' + hash.slice(1) + ')' : '')).replaceAll('-', ' '))} (${repoUrl})`;
+		const hashPart = (hash ? ' (' + hash.slice(1) + ')' : '');
+		const cleanLabel = (wiki + hashPart).replaceAll('-', ' ');
+		const repoPart = repoUrl ? ` (${repoUrl})` : '';
+		return `Wiki: ${decodeURIComponent(cleanLabel)}${repoPart}`;
 	}
 
 	// Shorten URLs that would otherwise be natively shortened

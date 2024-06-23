@@ -498,4 +498,8 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22',
 		'Wiki: "Can you add this feature?" (refined-github/refined-github)',
 	],
+	[
+		'https://github.com/fregante/shorten-repo-url/wiki/%22Can-you-add-this-feature%3F%22',
+		'Wiki: "Can you add this feature?"',
+	],
 ]));
