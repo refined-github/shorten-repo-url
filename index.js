@@ -248,9 +248,11 @@ export function applyToLink(a, currentUrl) {
 	// Shorten only if the link name hasn't been customized.
 	// .href automatically adds a / to naked origins so that needs to be tested too
 	// `trim` makes it compatible with this feature: https://github.com/sindresorhus/refined-github/pull/3085
-	const url = a.dataset.originalHref ?? a.href;
+	// `decodeURIComponent` is needed because some URLs are encoded in different ways in the DOM and in the `href` property: https://github.com/refined-github/shorten-repo-url/issues/19
+	const url = decodeURIComponent(a.dataset.originalHref ?? a.href);
+	const label = decodeURIComponent(a.textContent);
 	if (
-		(url === a.textContent.trim() || url === `${a.textContent}/`)
+		(url === label.trim() || url === `${label}/`)
 		&& !a.firstElementChild
 	) {
 		const shortened = shortenRepoUrl(url, currentUrl);
