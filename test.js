@@ -1,5 +1,5 @@
-const test = require('ava');
-const shortenUrl = require('.');
+import test from 'ava';
+import shortenUrl from './index.js';
 
 const currentLocation = 'https://github.com/fregante/shorten-repo-url/issue/1';
 
