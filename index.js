@@ -94,6 +94,7 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	const isRedirection = [
 		'https://togithub.com', // Renovate
 		'https://github-redirect.dependabot.com', // Dependabot
+		'https://redirect.github.com', // Dependabot
 	].includes(origin);
 
 	let [
