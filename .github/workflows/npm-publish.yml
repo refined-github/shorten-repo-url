@@ -18,6 +18,12 @@ on:
 jobs:
   NPM:
     runs-on: ubuntu-latest
+
+    # https://docs.npmjs.com/generating-provenance-statements#example-github-actions-workflow
+    permissions:
+      contents: read
+      id-token: write
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -31,7 +37,7 @@ jobs:
         run: |
           VERSION="$(npm version "${{ github.event.inputs.Version }}")"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
-      - run: npm publish
+      - run: npm publish --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: git push --follow-tags
