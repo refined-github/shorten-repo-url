@@ -415,18 +415,6 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'github.com/settings/profile',
 	],
 	[
-		'https://www.npmjs.com/',
-		'npmjs.com',
-	],
-	[
-		'https://www.npmjs.com/package/node',
-		'npmjs.com/package/node',
-	],
-	[
-		'https://example.com/nodejs/node/blob/cc8fc46/.gitignore',
-		'example.com/nodejs/node/blob/cc8fc46/.gitignore',
-	],
-	[
 		'https://github.com/',
 		'github.com',
 	],
@@ -513,5 +501,36 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 	[
 		'https://github.com/fregante/shorten-repo-url/wiki/%22Can-you-add-this-feature%3F%22',
 		'Wiki: "Can you add this feature?"',
+	],
+]));
+
+test('External URLs', urlMatcherMacro, new Map([
+	[
+		'https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement#parameters',
+		'developer.mozilla.org/en-US/docs/Web/API/Document/createElement#parameters',
+	],
+	[
+		'https://www.google.com/',
+		'google.com',
+	],
+	[
+		'https://wwww.google.com/',
+		'wwww.google.com',
+	],
+	[
+		'http://www.google.com/',
+		'http://www.google.com',
+	],
+	[
+		'https://www.npmjs.com/',
+		'npmjs.com',
+	],
+	[
+		'https://www.npmjs.com/package/node',
+		'npmjs.com/package/node',
+	],
+	[
+		'https://example.com/nodejs/node/blob/cc8fc46/.gitignore',
+		'example.com/nodejs/node/blob/cc8fc46/.gitignore',
 	],
 ]));
