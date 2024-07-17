@@ -1,6 +1,6 @@
 # shorten-repo-url
 
-> Shorten GitHub links like GitHub shortens Issues and Commit links. Used on [refined-github](https://github.com/sindresorhus/refined-github)
+> Shorten GitHub links like GitHub shortens Issues and Commit links. Used on [refined-github](https://github.com/refined-github/refined-github)
 
 ![Demo](https://user-images.githubusercontent.com/1402241/27252232-8fdf8ed0-538b-11e7-8f19-12d317c9cd32.png)
 
