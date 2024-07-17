@@ -164,6 +164,8 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 			cleanHref.push(parsedUrl.search);
 		}
 
+		cleanHref.push(parsedUrl.hash);
+
 		return cleanHref.join('');
 	}
 
