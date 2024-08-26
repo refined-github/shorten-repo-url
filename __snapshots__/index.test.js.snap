@@ -1,0 +1,263 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`http://www.google.com/ 1`] = `http://www.google.com`;
+
+exports[`https://cdn.rawgit.com/fregante/shorten-repo-url/d71718db/.gitignore 1`] = `<code>d71718db</code>/.gitignore (raw)`;
+
+exports[`https://cdn.rawgit.com/fregante/shorten-repo-url/v0.12/.gitignore 1`] = `<code>v0.12</code>/.gitignore (raw)`;
+
+exports[`https://cdn.rawgit.com/nodejs/node/d71718db/.gitignore 1`] = `nodejs/node@<code>d71718db</code>/.gitignore (raw)`;
+
+exports[`https://cdn.rawgit.com/nodejs/node/v0.12/.gitignore 1`] = `nodejs/node@<code>v0.12</code>/.gitignore (raw)`;
+
+exports[`https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement#parameters 1`] = `developer.mozilla.org/en-US/docs/Web/API/Document/createElement#parameters`;
+
+exports[`https://example.com/nodejs/node/blob/cc8fc46/.gitignore 1`] = `example.com/nodejs/node/blob/cc8fc46/.gitignore`;
+
+exports[`https://example.site/한글로-된-URL 1`] = `example.site/한글로-된-URL`;
+
+exports[`https://github.com/ 1`] = `github.com`;
+
+exports[`https://github.com/bfred-it/shorten-repo-url/network/dependencies 1`] = `bfred-it/shorten-repo-url (dependencies)`;
+
+exports[`https://github.com/bfred-it/shorten-repo-url/network/dependents 1`] = `bfred-it/shorten-repo-url (dependents)`;
+
+exports[`https://github.com/bfred-it/shorten-repo-url/wiki 1`] = `bfred-it/shorten-repo-url/wiki`;
+
+exports[`https://github.com/features 1`] = `github.com/features`;
+
+exports[`https://github.com/fregante/shorten-repo-url/ 1`] = `fregante/shorten-repo-url`;
+
+exports[`https://github.com/fregante/shorten-repo-url/?tab=readme-ov-file 1`] = `fregante/shorten-repo-url`;
+
+exports[`https://github.com/fregante/shorten-repo-url/archive/6.4.1.zip 1`] = `<code>6.4.1</code>.zip`;
+
+exports[`https://github.com/fregante/shorten-repo-url/blame/cc8fc46/.gitignore 1`] = `<code>cc8fc46</code>/.gitignore (blame)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/blame/master/.gitignore 1`] = `<code>master</code>/.gitignore (blame)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/blame/v0.12/.gitignore 1`] = `<code>v0.12</code>/.gitignore (blame)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/blob/cc8fc46/.gitignore 1`] = `<code>cc8fc46</code>/.gitignore`;
+
+exports[`https://github.com/fregante/shorten-repo-url/blob/master/.gitignore 1`] = `<code>master</code>/.gitignore`;
+
+exports[`https://github.com/fregante/shorten-repo-url/blob/v0.12/.gitignore 1`] = `<code>v0.12</code>/.gitignore`;
+
+exports[`https://github.com/fregante/shorten-repo-url/commit/cc8fc46.diff 1`] = `<code>cc8fc46</code>.diff`;
+
+exports[`https://github.com/fregante/shorten-repo-url/commit/cc8fc46.patch 1`] = `<code>cc8fc46</code>.patch`;
+
+exports[`https://github.com/fregante/shorten-repo-url/commits/cc8fc46/.gitignore 1`] = `<code>cc8fc46</code>/.gitignore (commits)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/commits/master/.gitignore 1`] = `<code>master</code>/.gitignore (commits)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/commits/v0.12/.gitignore 1`] = `<code>v0.12</code>/.gitignore (commits)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/compare 1`] = `fregante/shorten-repo-url/compare`;
+
+exports[`https://github.com/fregante/shorten-repo-url/compare/d71718db6aa4feb8dc10edbad1134472468e971a 1`] = `<code>d71718d</code> (compare)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/compare/master 1`] = `<code>master</code> (compare)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/compare/master...master 1`] = `<code>master...master</code> (compare)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/contributors 1`] = `fregante/shorten-repo-url/contributors`;
+
+exports[`https://github.com/fregante/shorten-repo-url/issues 1`] = `fregante/shorten-repo-url/issues`;
+
+exports[`https://github.com/fregante/shorten-repo-url/issues?q=is%3Aissue++is%3Aopen+sort%3Aupdated-desc+&unrelated=true 1`] = `fregante/shorten-repo-url/issues?unrelated=true (is:open sort:updated-desc)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/issues?q=wow 1`] = `fregante/shorten-repo-url/issues (wow)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/labels 1`] = `fregante/shorten-repo-url/labels`;
+
+exports[`https://github.com/fregante/shorten-repo-url/labels/npm 1`] = `npm (label)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/milestone/25 1`] = `fregante/shorten-repo-url/milestone/25`;
+
+exports[`https://github.com/fregante/shorten-repo-url/milestones 1`] = `fregante/shorten-repo-url/milestones`;
+
+exports[`https://github.com/fregante/shorten-repo-url/network 1`] = `fregante/shorten-repo-url/network`;
+
+exports[`https://github.com/fregante/shorten-repo-url/projects 1`] = `fregante/shorten-repo-url/projects`;
+
+exports[`https://github.com/fregante/shorten-repo-url/pull/123/checks 1`] = `#123 (checks)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/pull/123/commits 1`] = `#123 (commits)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/pull/123/files 1`] = `#123 (files)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/pulse 1`] = `fregante/shorten-repo-url/pulse`;
+
+exports[`https://github.com/fregante/shorten-repo-url/releases 1`] = `fregante/shorten-repo-url/releases`;
+
+exports[`https://github.com/fregante/shorten-repo-url/releases/download/6.4.1/now-macos 1`] = `<code>6.4.1</code> now-macos (download)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/releases/tag/v0.12.0 1`] = `<code>v0.12.0</code> (release)`;
+
+exports[`https://github.com/fregante/shorten-repo-url/tree/d71718db6aa4feb8dc10edbad1134472468e971a 1`] = `<code>d71718d</code>`;
+
+exports[`https://github.com/fregante/shorten-repo-url/tree/d71718db6aa4feb8dc10edbad1134472468e971a/doc 1`] = `<code>d71718d</code>/doc`;
+
+exports[`https://github.com/fregante/shorten-repo-url/tree/master/doc 1`] = `<code>master</code>/doc`;
+
+exports[`https://github.com/fregante/shorten-repo-url/tree/v0.12 1`] = `<code>v0.12</code>`;
+
+exports[`https://github.com/fregante/shorten-repo-url/tree/v0.12/doc 1`] = `<code>v0.12</code>/doc`;
+
+exports[`https://github.com/fregante/shorten-repo-url/wiki/%22Can-you-add-this-feature%3F%22 1`] = `Wiki: "Can you add this feature?"`;
+
+exports[`https://github.com/issues 1`] = `github.com/issues`;
+
+exports[`https://github.com/issues?q=is%3Aissue++is%3Aopen+sort%3Aupdated-desc+&unrelated=true 1`] = `github.com/issues?unrelated=true (is:open sort:updated-desc)`;
+
+exports[`https://github.com/marketplace 1`] = `github.com/marketplace`;
+
+exports[`https://github.com/network/dependencies 1`] = `github.com/network/dependencies`;
+
+exports[`https://github.com/nodejs 1`] = `@nodejs`;
+
+exports[`https://github.com/nodejs/node/ 1`] = `nodejs/node`;
+
+exports[`https://github.com/nodejs/node/blame/cc8fc46/.gitignore 1`] = `nodejs/node@<code>cc8fc46</code>/.gitignore (blame)`;
+
+exports[`https://github.com/nodejs/node/blame/master/.gitignore 1`] = `nodejs/node@<code>master</code>/.gitignore (blame)`;
+
+exports[`https://github.com/nodejs/node/blame/v0.12/.gitignore 1`] = `nodejs/node@<code>v0.12</code>/.gitignore (blame)`;
+
+exports[`https://github.com/nodejs/node/blob/cc8fc46/.gitignore 1`] = `nodejs/node@<code>cc8fc46</code>/.gitignore`;
+
+exports[`https://github.com/nodejs/node/blob/master/.gitignore 1`] = `nodejs/node@<code>master</code>/.gitignore`;
+
+exports[`https://github.com/nodejs/node/blob/v0.12/.gitignore 1`] = `nodejs/node@<code>v0.12</code>/.gitignore`;
+
+exports[`https://github.com/nodejs/node/commit/cc8fc46.diff 1`] = `nodejs/node@<code>cc8fc46</code>.diff`;
+
+exports[`https://github.com/nodejs/node/commit/cc8fc46.patch 1`] = `nodejs/node@<code>cc8fc46</code>.patch`;
+
+exports[`https://github.com/nodejs/node/commits/cc8fc46/.gitignore 1`] = `nodejs/node@<code>cc8fc46</code>/.gitignore (commits)`;
+
+exports[`https://github.com/nodejs/node/commits/master/.gitignore 1`] = `nodejs/node@<code>master</code>/.gitignore (commits)`;
+
+exports[`https://github.com/nodejs/node/commits/v0.12/.gitignore 1`] = `nodejs/node@<code>v0.12</code>/.gitignore (commits)`;
+
+exports[`https://github.com/nodejs/node/compare 1`] = `nodejs/node/compare`;
+
+exports[`https://github.com/nodejs/node/compare/d71718db6aa4feb8dc10edbad1134472468e971a 1`] = `nodejs/node@<code>d71718d</code> (compare)`;
+
+exports[`https://github.com/nodejs/node/compare/master 1`] = `nodejs/node@<code>master</code> (compare)`;
+
+exports[`https://github.com/nodejs/node/compare/master...master 1`] = `nodejs/node@<code>master...master</code> (compare)`;
+
+exports[`https://github.com/nodejs/node/contributors 1`] = `nodejs/node/contributors`;
+
+exports[`https://github.com/nodejs/node/graphs/commit-activity 1`] = `nodejs/node/graphs/commit-activity`;
+
+exports[`https://github.com/nodejs/node/labels 1`] = `nodejs/node/labels`;
+
+exports[`https://github.com/nodejs/node/labels/Please%21%20♥ 1`] = `nodejs/node/Please! ♥ (label)`;
+
+exports[`https://github.com/nodejs/node/labels/npm 1`] = `nodejs/node/npm (label)`;
+
+exports[`https://github.com/nodejs/node/milestone/25 1`] = `nodejs/node/milestone/25`;
+
+exports[`https://github.com/nodejs/node/milestones 1`] = `nodejs/node/milestones`;
+
+exports[`https://github.com/nodejs/node/network 1`] = `nodejs/node/network`;
+
+exports[`https://github.com/nodejs/node/projects 1`] = `nodejs/node/projects`;
+
+exports[`https://github.com/nodejs/node/pull/123/files 1`] = `nodejs/node#123 (files)`;
+
+exports[`https://github.com/nodejs/node/pulse 1`] = `nodejs/node/pulse`;
+
+exports[`https://github.com/nodejs/node/releases 1`] = `nodejs/node/releases`;
+
+exports[`https://github.com/nodejs/node/releases/tag/v0.12.0 1`] = `nodejs/node@<code>v0.12.0</code> (release)`;
+
+exports[`https://github.com/nodejs/node/tree/d71718db6aa4feb8dc10edbad1134472468e971a 1`] = `nodejs/node@<code>d71718d</code>`;
+
+exports[`https://github.com/nodejs/node/tree/d71718db6aa4feb8dc10edbad1134472468e971a/doc 1`] = `nodejs/node@<code>d71718d</code>/doc`;
+
+exports[`https://github.com/nodejs/node/tree/master/doc 1`] = `nodejs/node@<code>master</code>/doc`;
+
+exports[`https://github.com/nodejs/node/tree/v0.12 1`] = `nodejs/node@<code>v0.12</code>`;
+
+exports[`https://github.com/nodejs/node/tree/v0.12/doc 1`] = `nodejs/node@<code>v0.12</code>/doc`;
+
+exports[`https://github.com/nodejs/node/wiki 1`] = `nodejs/node/wiki`;
+
+exports[`https://github.com/nodejs/shorten-repo-url/ 1`] = `nodejs/shorten-repo-url`;
+
+exports[`https://github.com/pulls 1`] = `github.com/pulls`;
+
+exports[`https://github.com/pulls?q=is%3Apr++is%3Aopen+sort%3Aupdated-desc+&unrelated=true 1`] = `github.com/pulls?unrelated=true (is:open sort:updated-desc)`;
+
+exports[`https://github.com/refined-github/refined-github/labels/Please%21%20♥%EF%B8%8E 1`] = `refined-github/refined-github/Please! ♥︎ (label)`;
+
+exports[`https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22 1`] = `Wiki: "Can you add this feature?" (refined-github/refined-github)`;
+
+exports[`https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22# 1`] = `Wiki: "Can you add this feature?" (refined-github/refined-github)`;
+
+exports[`https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22#3-it-doesnt-require-options 1`] = `Wiki: "Can you add this feature?" (3 it doesnt require options) (refined-github/refined-github)`;
+
+exports[`https://github.com/settings/profile 1`] = `github.com/settings/profile`;
+
+exports[`https://github.com/sindresorhus 1`] = `@sindresorhus`;
+
+exports[`https://github.com/sindresorhus/notifier-for-github/pull/253/files/6b4489d417c9425dc27c5fb8d6b4a8518debd035..60cdcf3c3646164441bf8f037cef620479cdec59 1`] = `<code>6b4489d4..60cdcf3c</code> (#253)`;
+
+exports[`https://github.com/trending 1`] = `github.com/trending`;
+
+exports[`https://github.com/trending/developers 1`] = `github.com/trending/developers`;
+
+exports[`https://github.com/zeit/now-cli/archive/6.4.1.zip 1`] = `zeit/now-cli@<code>6.4.1</code>.zip`;
+
+exports[`https://github.com/zeit/now-cli/releases/download/6.4.1/now-macos 1`] = `zeit/now-cli@<code>6.4.1</code> now-macos (download)`;
+
+exports[`https://raw.githubusercontent.com/fregante/shorten-repo-url/d71718db/.gitignore 1`] = `<code>d71718db</code>/.gitignore (raw)`;
+
+exports[`https://raw.githubusercontent.com/fregante/shorten-repo-url/master/.gitignore 1`] = `<code>master</code>/.gitignore (raw)`;
+
+exports[`https://raw.githubusercontent.com/fregante/shorten-repo-url/v0.12/.gitignore 1`] = `<code>v0.12</code>/.gitignore (raw)`;
+
+exports[`https://raw.githubusercontent.com/nodejs/node/d71718db/.gitignore 1`] = `nodejs/node@<code>d71718db</code>/.gitignore (raw)`;
+
+exports[`https://raw.githubusercontent.com/nodejs/node/master/.gitignore 1`] = `nodejs/node@<code>master</code>/.gitignore (raw)`;
+
+exports[`https://raw.githubusercontent.com/nodejs/node/v0.12/.gitignore 1`] = `nodejs/node@<code>v0.12</code>/.gitignore (raw)`;
+
+exports[`https://rawgit.com/fregante/shorten-repo-url/master/.gitignore 1`] = `<code>master</code>/.gitignore (raw)`;
+
+exports[`https://rawgit.com/nodejs/node/master/.gitignore 1`] = `nodejs/node@<code>master</code>/.gitignore (raw)`;
+
+exports[`https://togithub.com/fregante/shorten-repo-url/commit/98c6175b0cbd4caca71d24e68e57b942b0dfb549 1`] = `<code>98c6175</code>`;
+
+exports[`https://togithub.com/fregante/shorten-repo-url/issues/25 1`] = `#25`;
+
+exports[`https://togithub.com/fregante/shorten-repo-url/issues/28#issue-850900171 1`] = `#28 (comment)`;
+
+exports[`https://togithub.com/fregante/shorten-repo-url/pull/32 1`] = `#32`;
+
+exports[`https://togithub.com/fregante/shorten-repo-url/pull/32/files 1`] = `#32 (files)`;
+
+exports[`https://togithub.com/fregante/shorten-repo-url/pull/33#discussion_r750069394 1`] = `#33 (review)`;
+
+exports[`https://togithub.com/fregante/shorten-repo-url/pull/33#pullrequestreview-801229042 1`] = `#33 (review)`;
+
+exports[`https://togithub.com/nodejs/node/pull/123 1`] = `nodejs/node#123`;
+
+exports[`https://togithub.com/nodejs/node/pull/123/files 1`] = `nodejs/node#123 (files)`;
+
+exports[`https://togithub.com/refined-github/refined-github/commit/4f270c4f50e0a2a20085a6e92095117f10340322 1`] = `refined-github/refined-github@<code>4f270c4</code>`;
+
+exports[`https://togithub.com/refined-github/refined-github/commit/e81a9646b448d90c7e02ab41332cab0507dccbbd#commitcomment-60089354 1`] = `refined-github/refined-github@<code>e81a964</code> (comment)`;
+
+exports[`https://www.google.com/ 1`] = `google.com`;
+
+exports[`https://www.npmjs.com/ 1`] = `npmjs.com`;
+
+exports[`https://www.npmjs.com/packaasdge/node 1`] = `npmjs.com/packaasdge/node`;
+
+exports[`https://wwww.google.com/ 1`] = `wwww.google.com`;
