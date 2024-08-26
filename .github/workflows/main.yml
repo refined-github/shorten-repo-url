@@ -33,4 +33,4 @@ jobs:
         with:
           node-version-file: package.json
       - run: npm install
-      - run: npx ava
+      - run: npx vitest
