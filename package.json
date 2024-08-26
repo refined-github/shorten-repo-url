@@ -32,6 +32,9 @@
 	},
 	"xo": {
 		"parser": "@typescript-eslint/parser",
+		"globals": [
+			"document"
+		],
 		"rules": {
 			"unicorn/better-regex": "off",
 			"unicorn/prefer-module": "off",
@@ -44,6 +47,7 @@
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^5.0.0",
 		"ava": "^6.1.3",
+		"happy-dom": "^15.0.0",
 		"tsd": "^0.31.1",
 		"xo": "^0.58.0"
 	},
