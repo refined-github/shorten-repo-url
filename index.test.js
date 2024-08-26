@@ -5,13 +5,14 @@ import shortenUrl, {applyToLink} from './index.js';
 const currentLocation = 'https://github.com/fregante/shorten-repo-url/issue/1';
 globalThis.document = new Window({url: currentLocation}).document;
 
-function urlMatcherMacro(t, shouldMatch = []) {
-	for (const [originalUrl, expectedShortenedUrl] of shouldMatch) {
+/** @param matches {Map<string, string>} */
+function urlMatcherMacro(matches) {
+	for (const [originalUrl, expectedShortenedUrl] of matches.entries()) {
 		expect(shortenUrl(originalUrl, currentLocation)).toBe(expectedShortenedUrl);
 	}
 }
 
-test('GitHub.com URLs', urlMatcherMacro, new Map([
+test('GitHub.com URLs', () => urlMatcherMacro(new Map([
 	[
 		'https://github.com/fregante/shorten-repo-url/',
 		'fregante/shorten-repo-url',
@@ -504,9 +505,9 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'https://github.com/fregante/shorten-repo-url/wiki/%22Can-you-add-this-feature%3F%22',
 		'Wiki: "Can you add this feature?"',
 	],
-]));
+])));
 
-test('External URLs', urlMatcherMacro, new Map([
+test('External URLs', () => urlMatcherMacro(new Map([
 	[
 		'https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement#parameters',
 		'developer.mozilla.org/en-US/docs/Web/API/Document/createElement#parameters',
@@ -539,7 +540,7 @@ test('External URLs', urlMatcherMacro, new Map([
 		'https://example.site/한글로-된-URL',
 		'example.site/한글로-된-URL',
 	],
-]));
+])));
 
 test('applyToLink', () => {
 	const a = document.createElement('a');
