@@ -297,6 +297,18 @@ function safeDecode(url) {
 	}
 }
 
+/**
+ * Handle non-URL gracefully
+ * @type {(url: string) => string}
+ */
+function safeHref(url) {
+	try {
+		return new URL(url).href;
+	} catch {
+		return url;
+	}
+}
+
 /** @param a {HTMLAnchorElement} */
 function getLinkHref(a) {
 	return a.dataset.originalHref ?? a.href;
@@ -304,8 +316,8 @@ function getLinkHref(a) {
 
 /** @param a {HTMLAnchorElement} */
 function isCustomLink(a) {
-	const url = safeDecode(getLinkHref(a));
-	const label = safeDecode(a.textContent);
+	const url = safeHref(getLinkHref(a));
+	const label = safeHref(a.textContent);
 	return (
 		// `trim` makes it compatible with this feature: https://github.com/sindresorhus/refined-github/pull/3085
 		url !== label.trim()
