@@ -297,10 +297,12 @@ function safeDecode(url) {
 	}
 }
 
+/** @param a {HTMLAnchorElement} */
 function getLinkHref(a) {
 	return a.dataset.originalHref ?? a.href;
 }
 
+/** @param a {HTMLAnchorElement} */
 function isCustomLink(a) {
 	const url = safeDecode(getLinkHref(a));
 	const label = safeDecode(a.textContent);
