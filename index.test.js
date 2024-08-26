@@ -1,4 +1,4 @@
-import test from 'ava';
+import {test, expect, assert} from 'vitest';
 import {Window} from 'happy-dom';
 import shortenUrl, {applyToLink} from './index.js';
 
@@ -7,7 +7,7 @@ globalThis.document = new Window({url: currentLocation}).document;
 
 function urlMatcherMacro(t, shouldMatch = []) {
 	for (const [originalUrl, expectedShortenedUrl] of shouldMatch) {
-		t.is(shortenUrl(originalUrl, currentLocation), expectedShortenedUrl);
+		expect(shortenUrl(originalUrl, currentLocation)).toBe(expectedShortenedUrl);
 	}
 }
 
@@ -541,18 +541,18 @@ test('External URLs', urlMatcherMacro, new Map([
 	],
 ]));
 
-test('applyToLink', t => {
+test('applyToLink', () => {
 	const a = document.createElement('a');
 	a.href = 'https://github.com';
 	a.textContent = 'https://github.com';
-	t.true(applyToLink(a, currentLocation));
-	t.is(a.textContent, 'github.com');
+	assert(applyToLink(a, currentLocation));
+	assert.equal(a.textContent, 'github.com');
 });
 
-test('applyToLink with a link that generates a HTML child element', t => {
+test('applyToLink with a link that generates a HTML child element', () => {
 	const a = document.createElement('a');
 	a.href = 'https://github.com/fregante/shorten-repo-url/blob/master/.gitignore';
 	a.textContent = 'https://github.com/fregante/shorten-repo-url/blob/master/.gitignore';
-	t.true(applyToLink(a, currentLocation));
-	t.is(a.innerHTML, '<code>master</code>/.gitignore');
+	assert(applyToLink(a, currentLocation));
+	assert.equal(a.innerHTML, '<code>master</code>/.gitignore');
 });
