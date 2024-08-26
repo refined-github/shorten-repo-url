@@ -2,7 +2,6 @@ import reservedNames from 'github-reserved-names/reserved-names.json' with { typ
 
 const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /^releases[/]tag[/]([^/]+)/;
-const labelRegex = /^labels[/]([^/]+)/;
 const compareRegex = /^compare[/]([^/]+)/;
 const pullRegex = /^pull[/](?<pull>\d+)(?:[/](?<pullPage>[^/]+))?(?:[/](?<pullPartialStart>[\da-f]{40})[.][.](?<pullPartialEnd>[\da-f]{40}))?$/;
 const issueRegex = /^issues[/](\d+)$/;
@@ -138,7 +137,6 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	const [, release] = repoPath.match(releaseRegex) || [];
 	const [, releaseTag, releaseTagExtension] = repoPath.match(releaseArchiveRegex) || [];
 	const [, downloadTag, downloadFilename] = repoPath.match(releaseDownloadRegex) || [];
-	const [, label] = repoPath.match(labelRegex) || [];
 	const [, compare] = repoPath.match(compareRegex) || [];
 	const {pull, pullPage, pullPartialStart, pullPartialEnd} = repoPath.match(pullRegex)?.groups ?? {};
 	const [, issue] = isRedirection ? repoPath.match(issueRegex) || [] : [];
@@ -220,13 +218,6 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	if (downloadFilename) {
 		const partial = joinValues([repoUrl, `<code>${downloadTag}</code>`], '@');
 		return `${partial} ${downloadFilename}${search}${hash} (download)`;
-	}
-
-	if (label) {
-		return (
-			joinValues([repoUrl, decodeURIComponent(label)])
-			+ `${search}${hash} (label)`
-		);
 	}
 
 	if (isDependents) {

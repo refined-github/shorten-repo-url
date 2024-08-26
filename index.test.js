@@ -61,6 +61,8 @@ const urls = [
 	'https://github.com/nodejs/node/compare/master',
 	'https://github.com/nodejs/node/compare/master...master',
 	'https://github.com/nodejs/node/milestone/25',
+
+	// Labels are here for verification, but in GitHub has already been shortening them
 	'https://github.com/fregante/shorten-repo-url/labels/npm',
 	'https://github.com/nodejs/node/labels/npm',
 	'https://github.com/nodejs/node/labels/Please%21%20♥',
