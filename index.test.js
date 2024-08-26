@@ -1,7 +1,9 @@
 import test from 'ava';
-import shortenUrl from './index.js';
+import {Window} from 'happy-dom';
+import shortenUrl, {applyToLink} from './index.js';
 
 const currentLocation = 'https://github.com/fregante/shorten-repo-url/issue/1';
+globalThis.document = new Window({url: currentLocation}).document;
 
 function urlMatcherMacro(t, shouldMatch = []) {
 	for (const [originalUrl, expectedShortenedUrl] of shouldMatch) {
@@ -534,3 +536,19 @@ test('External URLs', urlMatcherMacro, new Map([
 		'example.com/nodejs/node/blob/cc8fc46/.gitignore',
 	],
 ]));
+
+test('applyToLink', t => {
+	const a = document.createElement('a');
+	a.href = 'https://github.com';
+	a.textContent = 'https://github.com';
+	t.true(applyToLink(a, currentLocation));
+	t.is(a.textContent, 'github.com');
+});
+
+test('applyToLink with a link that generates a HTML child element', t => {
+	const a = document.createElement('a');
+	a.href = 'https://github.com/fregante/shorten-repo-url/blob/master/.gitignore';
+	a.textContent = 'https://github.com/fregante/shorten-repo-url/blob/master/.gitignore';
+	t.true(applyToLink(a, currentLocation));
+	t.is(a.innerHTML, '<code>master</code>/.gitignore');
+});
