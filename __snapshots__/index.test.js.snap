@@ -14,6 +14,8 @@ exports[`https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
 
 exports[`https://example.com/nodejs/node/blob/cc8fc46/.gitignore 1`] = `example.com/nodejs/node/blob/cc8fc46/.gitignore`;
 
+exports[`https://example.site/하위경로#한글-해시 1`] = `example.site/하위경로#한글-해시`;
+
 exports[`https://example.site/한글로-된-URL 1`] = `example.site/한글로-된-URL`;
 
 exports[`https://github.com/ 1`] = `github.com`;
@@ -267,5 +269,3 @@ exports[`https://www.npmjs.com/ 1`] = `npmjs.com`;
 exports[`https://www.npmjs.com/packaasdge/node 1`] = `npmjs.com/packaasdge/node`;
 
 exports[`https://wwww.google.com/ 1`] = `wwww.google.com`;
-
-exports[`https://한글로-된-경로.com/하위경로#한글-해시 1`] = `한글로-된-경로.com/하위경로#한글-해시`;
