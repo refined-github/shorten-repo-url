@@ -535,6 +535,10 @@ test('External URLs', urlMatcherMacro, new Map([
 		'https://example.com/nodejs/node/blob/cc8fc46/.gitignore',
 		'example.com/nodejs/node/blob/cc8fc46/.gitignore',
 	],
+	[
+		'https://example.site/한글로-된-URL',
+		'example.site/한글로-된-URL',
+	],
 ]));
 
 test('applyToLink', t => {
