@@ -72,7 +72,7 @@ exports[`https://github.com/fregante/shorten-repo-url/issues?q=wow 1`] = `fregan
 
 exports[`https://github.com/fregante/shorten-repo-url/labels 1`] = `fregante/shorten-repo-url/labels`;
 
-exports[`https://github.com/fregante/shorten-repo-url/labels/npm 1`] = `npm (label)`;
+exports[`https://github.com/fregante/shorten-repo-url/labels/npm 1`] = `fregante/shorten-repo-url/labels/npm`;
 
 exports[`https://github.com/fregante/shorten-repo-url/milestone/25 1`] = `fregante/shorten-repo-url/milestone/25`;
 
@@ -156,9 +156,9 @@ exports[`https://github.com/nodejs/node/graphs/commit-activity 1`] = `nodejs/nod
 
 exports[`https://github.com/nodejs/node/labels 1`] = `nodejs/node/labels`;
 
-exports[`https://github.com/nodejs/node/labels/Please%21%20♥ 1`] = `nodejs/node/Please! ♥ (label)`;
+exports[`https://github.com/nodejs/node/labels/Please%21%20♥ 1`] = `nodejs/node/labels/Please%21%20%E2%99%A5`;
 
-exports[`https://github.com/nodejs/node/labels/npm 1`] = `nodejs/node/npm (label)`;
+exports[`https://github.com/nodejs/node/labels/npm 1`] = `nodejs/node/labels/npm`;
 
 exports[`https://github.com/nodejs/node/milestone/25 1`] = `nodejs/node/milestone/25`;
 
@@ -194,7 +194,7 @@ exports[`https://github.com/pulls 1`] = `github.com/pulls`;
 
 exports[`https://github.com/pulls?q=is%3Apr++is%3Aopen+sort%3Aupdated-desc+&unrelated=true 1`] = `github.com/pulls?unrelated=true (is:open sort:updated-desc)`;
 
-exports[`https://github.com/refined-github/refined-github/labels/Please%21%20♥%EF%B8%8E 1`] = `refined-github/refined-github/Please! ♥︎ (label)`;
+exports[`https://github.com/refined-github/refined-github/labels/Please%21%20♥%EF%B8%8E 1`] = `refined-github/refined-github/labels/Please%21%20%E2%99%A5%EF%B8%8E`;
 
 exports[`https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22 1`] = `Wiki: "Can you add this feature?" (refined-github/refined-github)`;
 
