@@ -40,6 +40,8 @@ exports[`https://github.com/fregante/shorten-repo-url/blame/v0.12/.gitignore 1`]
 
 exports[`https://github.com/fregante/shorten-repo-url/blob/cc8fc46/.gitignore 1`] = `<code>cc8fc46</code>/.gitignore`;
 
+exports[`https://github.com/fregante/shorten-repo-url/blob/main/한글.txt 1`] = `<code>main</code>/한글.txt`;
+
 exports[`https://github.com/fregante/shorten-repo-url/blob/master/.gitignore 1`] = `<code>master</code>/.gitignore`;
 
 exports[`https://github.com/fregante/shorten-repo-url/blob/v0.12/.gitignore 1`] = `<code>v0.12</code>/.gitignore`;
@@ -107,6 +109,8 @@ exports[`https://github.com/fregante/shorten-repo-url/tree/v0.12 1`] = `<code>v0
 exports[`https://github.com/fregante/shorten-repo-url/tree/v0.12/doc 1`] = `<code>v0.12</code>/doc`;
 
 exports[`https://github.com/fregante/shorten-repo-url/wiki/%22Can-you-add-this-feature%3F%22 1`] = `Wiki: "Can you add this feature?"`;
+
+exports[`https://github.com/fregante/shorten-repo-url/wiki/한글-위키-페이지-경로 1`] = `Wiki: 한글 위키 페이지 경로`;
 
 exports[`https://github.com/issues 1`] = `github.com/issues`;
 
@@ -261,3 +265,5 @@ exports[`https://www.npmjs.com/ 1`] = `npmjs.com`;
 exports[`https://www.npmjs.com/packaasdge/node 1`] = `npmjs.com/packaasdge/node`;
 
 exports[`https://wwww.google.com/ 1`] = `wwww.google.com`;
+
+exports[`https://한글로-된-경로.com/하위경로#한글-해시 1`] = `한글로-된-경로.com/하위경로#한글-해시`;
