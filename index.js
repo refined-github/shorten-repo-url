@@ -13,6 +13,7 @@ const dependentsRegex = /^network[/]dependents[/]?$/;
 const dependenciesRegex = /^network[/]dependencies[/]?$/;
 const wikiRegex = /^wiki[/](.+)$/;
 
+/** @type {(searchParameters: URLSearchParams, pathname: string) => string} */
 function pullQueryOut(searchParameters, pathname) {
 	let query = searchParameters.get('q');
 
@@ -32,6 +33,7 @@ function pullQueryOut(searchParameters, pathname) {
 	return ` (${query.replaceAll(/\s+/g, ' ').trim()})`;
 }
 
+/** @param revision {string} */
 function styleRevision(revision) {
 	if (!revision) {
 		return;
@@ -45,6 +47,7 @@ function styleRevision(revision) {
 	return `<code>${revision}</code>`;
 }
 
+/** @param hash {string} */
 function commentIndicator(hash) {
 	if (hash.startsWith('#issue-') || hash.startsWith('#commitcomment-')) {
 		return ' (comment)';
@@ -57,11 +60,18 @@ function commentIndicator(hash) {
 	return '';
 }
 
-// Filter out null values
+/**
+ * Filter out null values
+ * @type {(array: string[], delimiter?: string) => string}
+ */
 function joinValues(array, delimiter = '/') {
 	return array.filter(Boolean).join(delimiter);
 }
 
+/**
+ * @param href {string}
+ * @param currentUrl {string}
+ */
 function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	if (!href) {
 		return;
@@ -268,7 +278,10 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	return pathname.replaceAll(/^[/]|[/]$/g, '') + url.search + hash + query;
 }
 
-// Without this, <a>%%</a> would throw an error
+/**
+ *  Without this, <a>%%</a> would throw an error
+ *  @type {(url: string) => string}
+ */
 function safeDecode(url) {
 	try {
 		return decodeURIComponent(url);
@@ -277,6 +290,7 @@ function safeDecode(url) {
 	}
 }
 
+/** @type {(a: HTMLAnchorElement, currentUrl: string) => boolean} */
 export function applyToLink(a, currentUrl) {
 	// Shorten only if the link name hasn't been customized.
 	// .href automatically adds a / to naked origins so that needs to be tested too
