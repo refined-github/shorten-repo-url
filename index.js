@@ -1,4 +1,5 @@
 import reservedNames from 'github-reserved-names/reserved-names.json' with { type: 'json' };
+import punycode from 'punycode.js';
 
 const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /^releases[/]tag[/]([^/]+)/;
@@ -86,11 +87,11 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	const url = new URL(href);
 	const {
 		origin,
-		pathname,
 		search,
 		searchParams,
 		hash,
 	} = url;
+	const pathname = decodeURIComponent(punycode.toUnicode(url.pathname));
 
 	const pathnameParts = pathname.slice(1).split('/'); // ['user', 'repo', 'pull', '342']
 	const repoPath = pathnameParts.slice(2).join('/'); // 'pull/342'
@@ -178,7 +179,7 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 
 		// The user prefers seeing the URL as it was typed, so we need to decode it
 		try {
-			return decodeURI(cleanHref.join(''));
+			return decodeURI(cleanHref.map(x => punycode.toUnicode(x)).join(''));
 		} catch {
 			// Decoding fails if the URL includes '%%'
 			return href;
