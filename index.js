@@ -1,5 +1,4 @@
 import reservedNames from 'github-reserved-names/reserved-names.json' with { type: 'json' };
-import punycode from 'punycode.js';
 
 const patchDiffRegex = /[.](patch|diff)$/;
 const releaseRegex = /^releases[/]tag[/]([^/]+)/;
@@ -159,12 +158,13 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	 * Shorten URL
 	 */
 	if (isReserved || pathname === '/' || (!isLocal && !isRaw && !isRedirection)) {
+		const origin = href.split('/', 3).join('/');
 		const parsedUrl = new URL(href);
 		const cleanHref = [
-			parsedUrl.origin
+			origin
 				.replace(/^https:[/][/]/, '')
 				.replace(/^www[.]/, ''),
-			parsedUrl.pathname
+			decodeURI(parsedUrl.pathname)
 				.replace(/[/]$/, ''),
 		];
 
@@ -175,15 +175,9 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 			cleanHref.push(parsedUrl.search);
 		}
 
-		cleanHref.push(parsedUrl.hash);
+		cleanHref.push(decodeURI(parsedUrl.hash));
 
-		// The user prefers seeing the URL as it was typed, so we need to decode it
-		try {
-			return decodeURI(cleanHref.map(x => punycode.toUnicode(x)).join(''));
-		} catch {
-			// Decoding fails if the URL includes '%%'
-			return href;
-		}
+		return cleanHref.join('');
 	}
 
 	if (user && !repo) {
@@ -324,7 +318,7 @@ export function applyToLink(a, currentUrl) {
 		// And if there are no additional images in the link
 		&& !a.firstElementChild
 	) {
-		const url = getLinkHref(a);
+		const url = a.textContent;
 		const shortened = shortenRepoUrl(url, currentUrl);
 		a.replaceChildren(
 			...shortened.split(

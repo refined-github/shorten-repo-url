@@ -42,8 +42,7 @@
 		}
 	},
 	"dependencies": {
-		"github-reserved-names": "^2.0.5",
-		"punycode.js": "^2.3.1"
+		"github-reserved-names": "^2.0.5"
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^5.0.0",
