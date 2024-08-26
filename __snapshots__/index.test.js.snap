@@ -110,8 +110,6 @@ exports[`https://github.com/fregante/shorten-repo-url/tree/v0.12/doc 1`] = `<cod
 
 exports[`https://github.com/fregante/shorten-repo-url/wiki/%22Can-you-add-this-feature%3F%22 1`] = `Wiki: "Can you add this feature?"`;
 
-exports[`https://github.com/fregante/shorten-repo-url/wiki/한글-위키-페이지-경로 1`] = `Wiki: 한글 위키 페이지 경로`;
-
 exports[`https://github.com/issues 1`] = `github.com/issues`;
 
 exports[`https://github.com/issues?q=is%3Aissue++is%3Aopen+sort%3Aupdated-desc+&unrelated=true 1`] = `github.com/issues?unrelated=true (is:open sort:updated-desc)`;
@@ -205,6 +203,10 @@ exports[`https://github.com/refined-github/refined-github/wiki/%22Can-you-add-th
 exports[`https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22# 1`] = `Wiki: "Can you add this feature?" (refined-github/refined-github)`;
 
 exports[`https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22#3-it-doesnt-require-options 1`] = `Wiki: "Can you add this feature?" (3 it doesnt require options) (refined-github/refined-github)`;
+
+exports[`https://github.com/scarf005/hangul-test/wiki/한글-위키-페이지 1`] = `Wiki: 한글 위키 페이지 (scarf005/hangul-test)`;
+
+exports[`https://github.com/scarf005/hangul-test/wiki/한글-위키-페이지#한글-헤딩 1`] = `Wiki: 한글 위키 페이지 (한글 헤딩) (scarf005/hangul-test)`;
 
 exports[`https://github.com/settings/profile 1`] = `github.com/settings/profile`;
 
