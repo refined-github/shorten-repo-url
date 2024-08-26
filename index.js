@@ -81,16 +81,15 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	const currentRepo = currentUrl.pathname.slice(1).split('/', 2).join('/');
 
 	/**
-	 * Parse URL
+	 * Parse URL manually to avoid URL encoding and punycode
 	 */
+	const origin = href.split('/', 3).join('/');
+	const pathname = href.slice(origin.length).replace(/[?#].*/, '');
+	const hash = /#.+$/.exec(href)?.[0] ?? '';
+
+	// Use URL exclusively for search parameters because they're too hard to parse
 	const url = new URL(href);
-	const {
-		origin,
-		search,
-		searchParams,
-		hash,
-	} = url;
-	const pathname = decodeURIComponent(url.pathname);
+	const {search, searchParams} = url;
 
 	const pathnameParts = pathname.slice(1).split('/'); // ['user', 'repo', 'pull', '342']
 	const repoPath = pathnameParts.slice(2).join('/'); // 'pull/342'
@@ -158,24 +157,22 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	 * Shorten URL
 	 */
 	if (isReserved || pathname === '/' || (!isLocal && !isRaw && !isRedirection)) {
-		const origin = href.split('/', 3).join('/');
-		const parsedUrl = new URL(href);
 		const cleanHref = [
 			origin
 				.replace(/^https:[/][/]/, '')
 				.replace(/^www[.]/, ''),
-			decodeURI(parsedUrl.pathname)
+			pathname
 				.replace(/[/]$/, ''),
 		];
 
 		if (['issues', 'pulls'].includes(user) && !repo) {
-			const query = pullQueryOut(parsedUrl.searchParams, parsedUrl.pathname);
-			cleanHref.push(parsedUrl.search, query);
+			const query = pullQueryOut(url.searchParams, url.pathname);
+			cleanHref.push(url.search, query);
 		} else {
-			cleanHref.push(parsedUrl.search);
+			cleanHref.push(url.search);
 		}
 
-		cleanHref.push(decodeURI(parsedUrl.hash));
+		cleanHref.push(decodeURI(url.hash));
 
 		return cleanHref.join('');
 	}
