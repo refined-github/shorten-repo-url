@@ -504,10 +504,6 @@ test('GitHub.com URLs', urlMatcherMacro, new Map([
 		'https://github.com/fregante/shorten-repo-url/wiki/%22Can-you-add-this-feature%3F%22',
 		'Wiki: "Can you add this feature?"',
 	],
-	[
-		'https://example.site/한글로-된-URL',
-		'example.site/한글로-된-URL',
-	],
 ]));
 
 test('External URLs', urlMatcherMacro, new Map([
@@ -538,6 +534,10 @@ test('External URLs', urlMatcherMacro, new Map([
 	[
 		'https://example.com/nodejs/node/blob/cc8fc46/.gitignore',
 		'example.com/nodejs/node/blob/cc8fc46/.gitignore',
+	],
+	[
+		'https://example.site/한글로-된-URL',
+		'example.site/한글로-된-URL',
 	],
 ]));
 
