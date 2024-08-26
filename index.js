@@ -91,7 +91,7 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 		searchParams,
 		hash,
 	} = url;
-	const pathname = decodeURIComponent(punycode.toUnicode(url.pathname));
+	const pathname = decodeURIComponent(url.pathname);
 
 	const pathnameParts = pathname.slice(1).split('/'); // ['user', 'repo', 'pull', '342']
 	const repoPath = pathnameParts.slice(2).join('/'); // 'pull/342'
