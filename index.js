@@ -166,7 +166,8 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 
 		cleanHref.push(parsedUrl.hash);
 
-		return cleanHref.join('');
+		// The user prefers seeing the URL as it was typed, so we need to decode it
+		return decodeURI(cleanHref.join(''));
 	}
 
 	if (user && !repo) {
