@@ -296,18 +296,32 @@ function safeDecode(url) {
 	}
 }
 
+function getLinkHref(a) {
+	return a.dataset.originalHref ?? a.href;
+}
+
+function isCustomLink(a) {
+	const url = safeDecode(getLinkHref(a));
+	const label = safeDecode(a.textContent);
+	return (
+		// `trim` makes it compatible with this feature: https://github.com/sindresorhus/refined-github/pull/3085
+		url !== label.trim()
+		// .href automatically adds a / to naked origins so that needs to be tested too
+		&& url !== `${label}/`
+	);
+}
+
 /** @type {(a: HTMLAnchorElement, currentUrl: string) => boolean} */
 export function applyToLink(a, currentUrl) {
-	// Shorten only if the link name hasn't been customized.
-	// .href automatically adds a / to naked origins so that needs to be tested too
-	// `trim` makes it compatible with this feature: https://github.com/sindresorhus/refined-github/pull/3085
 	// `safeDecode` is needed because some URLs are encoded in different ways in the DOM and in the `href` property: https://github.com/refined-github/shorten-repo-url/issues/19
-	const url = safeDecode(a.dataset.originalHref ?? a.href);
-	const label = safeDecode(a.textContent);
+
 	if (
-		(url === label.trim() || url === `${label}/`)
+		// Shorten only if the link name hasn't been customized
+		!isCustomLink(a)
+		// And if there are no additional images in the link
 		&& !a.firstElementChild
 	) {
+		const url = getLinkHref(a);
 		const shortened = shortenRepoUrl(url, currentUrl);
 		a.replaceChildren(
 			...shortened.split(
