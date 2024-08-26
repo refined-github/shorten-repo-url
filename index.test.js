@@ -149,7 +149,7 @@ const urls = [
 	'https://www.npmjs.com/packaasdge/node',
 	'https://example.com/nodejs/node/blob/cc8fc46/.gitignore',
 	'https://example.site/한글로-된-URL',
-	'https://example.site/하위경로#한글-해시',
+	'https://한글로-된-경로.com/하위경로#한글-해시',
 ];
 
 test.each(urls)('%s', url => {
