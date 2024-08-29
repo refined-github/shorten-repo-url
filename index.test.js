@@ -32,6 +32,7 @@ const urls = [
 	'https://github.com/fregante/shorten-repo-url/blob/master/.gitignore',
 	'https://github.com/fregante/shorten-repo-url/blob/v0.12/.gitignore',
 	'https://github.com/fregante/shorten-repo-url/blob/cc8fc46/.gitignore',
+	'https://github.com/fregante/shorten-repo-url/blob/main/한글.txt',
 	'https://github.com/nodejs/node/blob/master/.gitignore',
 	'https://github.com/nodejs/node/blob/v0.12/.gitignore',
 	'https://github.com/nodejs/node/blob/cc8fc46/.gitignore',
@@ -138,6 +139,8 @@ const urls = [
 	'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22#',
 	'https://github.com/refined-github/refined-github/wiki/%22Can-you-add-this-feature%3F%22',
 	'https://github.com/fregante/shorten-repo-url/wiki/%22Can-you-add-this-feature%3F%22',
+	'https://github.com/scarf005/hangul-test/wiki/한글-위키-페이지',
+	'https://github.com/scarf005/hangul-test/wiki/한글-위키-페이지#한글-헤딩',
 	'https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement#parameters',
 	'https://www.google.com/',
 	'https://wwww.google.com/',
@@ -146,6 +149,7 @@ const urls = [
 	'https://www.npmjs.com/packaasdge/node',
 	'https://example.com/nodejs/node/blob/cc8fc46/.gitignore',
 	'https://example.site/한글로-된-URL',
+	'https://한글로-된-경로.com/하위경로#한글-해시',
 ];
 
 test.each(urls)('%s', url => {

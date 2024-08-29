@@ -81,16 +81,15 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	const currentRepo = currentUrl.pathname.slice(1).split('/', 2).join('/');
 
 	/**
-	 * Parse URL
+	 * Parse URL manually to avoid URL encoding and punycode
 	 */
+	const origin = href.split('/', 3).join('/');
+	const pathname = href.slice(origin.length).replace(/[?#].*/, '');
+	const hash = /#.+$/.exec(href)?.[0] ?? '';
+
+	// Use URL exclusively for search parameters because they're too hard to parse
 	const url = new URL(href);
-	const {
-		origin,
-		pathname,
-		search,
-		searchParams,
-		hash,
-	} = url;
+	const {search, searchParams} = url;
 
 	const pathnameParts = pathname.slice(1).split('/'); // ['user', 'repo', 'pull', '342']
 	const repoPath = pathnameParts.slice(2).join('/'); // 'pull/342'
@@ -158,31 +157,24 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	 * Shorten URL
 	 */
 	if (isReserved || pathname === '/' || (!isLocal && !isRaw && !isRedirection)) {
-		const parsedUrl = new URL(href);
 		const cleanHref = [
-			parsedUrl.origin
+			origin
 				.replace(/^https:[/][/]/, '')
 				.replace(/^www[.]/, ''),
-			parsedUrl.pathname
+			pathname
 				.replace(/[/]$/, ''),
 		];
 
 		if (['issues', 'pulls'].includes(user) && !repo) {
-			const query = pullQueryOut(parsedUrl.searchParams, parsedUrl.pathname);
-			cleanHref.push(parsedUrl.search, query);
+			const query = pullQueryOut(url.searchParams, url.pathname);
+			cleanHref.push(url.search, query);
 		} else {
-			cleanHref.push(parsedUrl.search);
+			cleanHref.push(url.search);
 		}
 
-		cleanHref.push(parsedUrl.hash);
+		cleanHref.push(decodeURI(url.hash));
 
-		// The user prefers seeing the URL as it was typed, so we need to decode it
-		try {
-			return decodeURI(cleanHref.join(''));
-		} catch {
-			// Decoding fails if the URL includes '%%'
-			return href;
-		}
+		return cleanHref.join('');
 	}
 
 	if (user && !repo) {
@@ -290,16 +282,18 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
  */
 function safeDecode(url) {
 	try {
-		return decodeURIComponent(url);
+		return new URL(url).href;
 	} catch {
 		return url;
 	}
 }
 
+/** @param a {HTMLAnchorElement} */
 function getLinkHref(a) {
 	return a.dataset.originalHref ?? a.href;
 }
 
+/** @param a {HTMLAnchorElement} */
 function isCustomLink(a) {
 	const url = safeDecode(getLinkHref(a));
 	const label = safeDecode(a.textContent);
@@ -321,7 +315,7 @@ export function applyToLink(a, currentUrl) {
 		// And if there are no additional images in the link
 		&& !a.firstElementChild
 	) {
-		const url = getLinkHref(a);
+		const url = a.textContent;
 		const shortened = shortenRepoUrl(url, currentUrl);
 		a.replaceChildren(
 			...shortened.split(
