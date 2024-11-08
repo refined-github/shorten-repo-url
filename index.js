@@ -84,7 +84,7 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	 * Parse URL manually to avoid URL encoding and punycode
 	 */
 	const origin = href.split('/', 3).join('/');
-	const pathname = href.slice(origin.length).replace(/[?#].*/, '');
+	const pathname = href.slice(origin.length).replace(/[?#].*/, '') || '/';
 	const hash = /#.+$/.exec(href)?.[0] ?? '';
 
 	// Use URL exclusively for search parameters because they're too hard to parse

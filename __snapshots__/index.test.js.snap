@@ -16,6 +16,8 @@ exports[`https://example.com/nodejs/node/blob/cc8fc46/.gitignore 1`] = `example.
 
 exports[`https://example.site/한글로-된-URL 1`] = `example.site/한글로-된-URL`;
 
+exports[`https://github.com 1`] = `github.com`;
+
 exports[`https://github.com/ 1`] = `github.com`;
 
 exports[`https://github.com/bfred-it/shorten-repo-url/network/dependencies 1`] = `bfred-it/shorten-repo-url (dependencies)`;

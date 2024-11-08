@@ -118,6 +118,7 @@ const urls = [
 	'https://github.com/trending/developers',
 	'https://github.com/settings/profile',
 	'https://github.com/',
+	'https://github.com',
 	'https://github.com/fregante/shorten-repo-url/issues',
 	'https://github.com/fregante/shorten-repo-url/issues?q=wow',
 	'https://github.com/fregante/shorten-repo-url/issues?q=is%3Aissue++is%3Aopen+sort%3Aupdated-desc+&unrelated=true',
