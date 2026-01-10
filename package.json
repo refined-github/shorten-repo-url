@@ -33,6 +33,9 @@
 	},
 	"xo": {
 		"parser": "@typescript-eslint/parser",
+		"ignores": [
+			"demo/**"
+		],
 		"globals": [
 			"document"
 		],

@@ -142,9 +142,9 @@ const urls = [
 
 const currentLocation = 'https://github.com/fregante/shorten-repo-url/issue/1';
 
-const urlInput = document.getElementById('url-input');
-const output = document.getElementById('output');
-const examplesContainer = document.getElementById('examples');
+const urlInput = document.querySelector('#url-input');
+const output = document.querySelector('#output');
+const examplesContainer = document.querySelector('#examples');
 
 function updateOutput(url) {
 	if (!url) {
@@ -154,7 +154,7 @@ function updateOutput(url) {
 	}
 
 	const shortened = shortenUrl(url, currentLocation);
-	
+
 	if (shortened) {
 		output.classList.add('has-content');
 		output.innerHTML = `
@@ -171,8 +171,8 @@ function updateOutput(url) {
 }
 
 // Handle input changes
-urlInput.addEventListener('input', (e) => {
-	updateOutput(e.target.value);
+urlInput.addEventListener('input', event => {
+	updateOutput(event.target.value);
 });
 
 // Initialize examples
