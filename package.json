@@ -29,8 +29,8 @@
 	],
 	"scripts": {
 		"test": "xo && tsd && vitest run",
-		"build:demo": "NODE_OPTIONS='' vite build demo",
-		"watch:demo": "NODE_OPTIONS='' vite demo"
+		"build:demo": "vite build demo",
+		"watch:demo": "vite demo"
 	},
 	"xo": {
 		"parser": "@typescript-eslint/parser",
