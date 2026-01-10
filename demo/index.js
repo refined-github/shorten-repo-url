@@ -1,5 +1,5 @@
 import shortenUrl from '../index.js';
-import {urls} from '../urls.js';
+import {urls} from '../fixtures/urls.js';
 
 const currentLocation = 'https://github.com/fregante/shorten-repo-url/issue/1';
 

@@ -1,6 +1,6 @@
 import {test, expect} from 'vitest';
 import {Window} from 'happy-dom';
-import {urls} from './urls.js';
+import {urls} from './fixtures/urls.js';
 import shortenUrl, {applyToLink} from './index.js';
 
 const currentLocation = 'https://github.com/fregante/shorten-repo-url/issue/1';
