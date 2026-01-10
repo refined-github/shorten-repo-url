@@ -317,19 +317,15 @@ export function applyToLink(a, currentUrl) {
 	) {
 		const url = a.textContent;
 		const shortened = shortenRepoUrl(url, currentUrl);
-		a.replaceChildren(
-			...shortened.split(
-				/<code>([^<]+)<\/code>/g,
-			).map((part, i) => {
-				if (i % 2 === 0) {
-					return part;
-				}
+		a.replaceChildren(...shortened.split(/<code>([^<]+)<\/code>/g).map((part, i) => {
+			if (i % 2 === 0) {
+				return part;
+			}
 
-				const codeElement = document.createElement('code');
-				codeElement.textContent = part;
-				return codeElement;
-			}),
-		);
+			const codeElement = document.createElement('code');
+			codeElement.textContent = part;
+			return codeElement;
+		}));
 		return true;
 	}
 
