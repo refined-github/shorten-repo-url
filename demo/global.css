@@ -1,0 +1,91 @@
+* {
+	transition: none !important;
+}
+
+:root {
+	--grid-maxWidth: 800px;
+	--color-primary: #4a8a00;
+	padding-bottom: 3rem;
+	-moz-tab-size: 4;
+	tab-size: 4;
+}
+
+code {
+	color: var(--color-darkGrey);
+	background-color: rgba(175, 184, 193, 0.2);
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+}
+
+h1 {
+	background: #4a8a00;
+	padding: 1em;
+	margin-top: 0;
+	text-align: center;
+}
+
+h1 a {
+	color: white;
+}
+
+label {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1em;
+}
+
+label span {
+	margin-right: 0.5em;
+	font-size: 1.7em;
+	font-weight: bold;
+}
+
+input {
+	width: 100%;
+}
+
+#output {
+	margin: 2em 0;
+	padding: 1em;
+	background-color: #f6f8fa;
+	border-radius: 6px;
+	min-height: 2em;
+}
+
+#output.has-content {
+	border: 1px solid #d0d7de;
+}
+
+#output .result {
+	font-size: 1.2em;
+	margin-bottom: 0.5em;
+}
+
+#output .original {
+	font-size: 0.9em;
+	color: #57606a;
+	margin-top: 0.5em;
+}
+
+.example {
+	margin: 1em 0;
+	padding: 1em;
+	background-color: #f6f8fa;
+	border-radius: 6px;
+	border: 1px solid #d0d7de;
+}
+
+.example-url {
+	font-family: monospace;
+	font-size: 0.9em;
+	color: #0969da;
+	word-break: break-all;
+	margin-bottom: 0.5em;
+}
+
+.example-result {
+	font-size: 1.1em;
+	margin-top: 0.5em;
+	padding-top: 0.5em;
+	border-top: 1px solid #d0d7de;
+}

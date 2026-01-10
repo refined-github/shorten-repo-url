@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/chota@0.7.2/dist/chota.min.css"
+		/>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+		<title>`shorten-repo-url` npm module testing ground</title>
+
+		<link rel="stylesheet" href="global.css" />
+		<script defer type="module" src="index.js"></script>
+	</head>
+
+	<body>
+		<h1>
+			<a href="https://github.com/refined-github/shorten-repo-url">
+				refined-github/shorten-repo-url
+			</a>
+		</h1>
+		<main class="container">
+			<p>
+				Enter a GitHub URL to see how it will be shortened.
+			</p>
+			<label>
+				<span>URL:</span>
+				<input
+					type="search"
+					id="url-input"
+					placeholder="https://github.com/nodejs/node/tree/v0.12/doc"
+					autocomplete="off"
+					autocorrect="off"
+				/>
+			</label>
+			<div id="output"></div>
+			<h2>Examples</h2>
+			<div id="examples"></div>
+		</main>
+	</body>
+</html>
