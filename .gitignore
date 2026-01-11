@@ -6,6 +6,5 @@ Thumbs.db
 *.tmp
 *.bak
 *.log
-*.lock
 logs
-package-lock.json
+demo/dist
