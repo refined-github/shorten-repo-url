@@ -1,3 +1,4 @@
+/* global document */
 import {test, expect} from 'vitest';
 import {Window} from 'happy-dom';
 import {urls} from './fixtures/urls.js';
