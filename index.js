@@ -1,18 +1,19 @@
 /* global document */
+/* eslint-disable unicorn/better-regex */
 import reservedNames from 'github-reserved-names/reserved-names.json' with { type: 'json' };
 
-const patchDiffRegex = /\.(patch|diff)$/;
-const releaseRegex = /^releases\/tag\/([^/]+)/;
-const labelRegex = /^labels\/([^/]+)/;
-const compareRegex = /^compare\/([^/]+)/;
-const pullRegex = /^pull\/(?<pull>\d+)(?:\/(?<pullPage>[^/]+))?(?:\/(?<pullPartialStart>[\da-f]{40})\.\.(?<pullPartialEnd>[\da-f]{40}))?$/;
-const issueRegex = /^issues\/(\d+)$/;
-const commitRegex = /^commit\/([\da-f]{40})$/;
-const releaseArchiveRegex = /^archive\/(.+)(\.zip|\.tar\.gz)/;
-const releaseDownloadRegex = /^releases\/download\/([^/]+)\/(.+)/;
-const dependentsRegex = /^network\/dependents\/?$/;
-const dependenciesRegex = /^network\/dependencies\/?$/;
-const wikiRegex = /^wiki\/(.+)$/;
+const patchDiffRegex = /[.](patch|diff)$/;
+const releaseRegex = /^releases[/]tag[/]([^/]+)/;
+const labelRegex = /^labels[/]([^/]+)/;
+const compareRegex = /^compare[/]([^/]+)/;
+const pullRegex = /^pull[/](?<pull>\d+)(?:[/](?<pullPage>[^/]+))?(?:[/](?<pullPartialStart>[\da-f]{40})[.][.](?<pullPartialEnd>[\da-f]{40}))?$/;
+const issueRegex = /^issues[/](\d+)$/;
+const commitRegex = /^commit[/]([\da-f]{40})$/;
+const releaseArchiveRegex = /^archive[/](.+)([.]zip|[.]tar[.]gz)/;
+const releaseDownloadRegex = /^releases[/]download[/]([^/]+)[/](.+)/;
+const dependentsRegex = /^network[/]dependents[/]?$/;
+const dependenciesRegex = /^network[/]dependencies[/]?$/;
+const wikiRegex = /^wiki[/](.+)$/;
 
 /** @type {(searchParameters: URLSearchParams, pathname: string) => string} */
 function pullQueryOut(searchParameters, pathname) {
@@ -41,7 +42,7 @@ function styleRevision(revision) {
 	}
 
 	revision = revision.replace(patchDiffRegex, '');
-	if (/^[\da-f]{40}$/.test(revision)) {
+	if (/^[0-9a-f]{40}$/.test(revision)) {
 		revision = revision.slice(0, 7);
 	}
 
@@ -161,10 +162,10 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	if (isReserved || pathname === '/' || (!isLocal && !isRaw && !isRedirection)) {
 		const cleanHref = [
 			origin
-				.replace(/^https:\/\//, '')
-				.replace(/^www\./, ''),
+				.replace(/^https:[/][/]/, '')
+				.replace(/^www[.]/, ''),
 			pathname
-				.replace(/\/$/, ''),
+				.replace(/[/]$/, ''),
 		];
 
 		if (['issues', 'pulls'].includes(user) && !repo) {
@@ -275,7 +276,7 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	}
 
 	// Drop leading and trailing slash of relative path
-	return pathname.replaceAll(/^\/|\/$/g, '') + url.search + hash + query;
+	return pathname.replaceAll(/^[/]|[/]$/g, '') + url.search + hash + query;
 }
 /* eslint-enable complexity */
 
