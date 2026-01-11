@@ -1,3 +1,5 @@
+/* global document */
+/* eslint-disable unicorn/better-regex */
 import reservedNames from 'github-reserved-names/reserved-names.json' with { type: 'json' };
 
 const patchDiffRegex = /[.](patch|diff)$/;
@@ -72,6 +74,7 @@ function joinValues(array, delimiter = '/') {
  * @param href {string}
  * @param currentUrl {string}
  */
+/* eslint-disable complexity */
 function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	if (!href) {
 		return;
@@ -275,6 +278,7 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	// Drop leading and trailing slash of relative path
 	return pathname.replaceAll(/^[/]|[/]$/g, '') + url.search + hash + query;
 }
+/* eslint-enable complexity */
 
 /**
  *  Without this, <a>%%</a> would throw an error
@@ -317,19 +321,15 @@ export function applyToLink(a, currentUrl) {
 	) {
 		const url = a.textContent;
 		const shortened = shortenRepoUrl(url, currentUrl);
-		a.replaceChildren(
-			...shortened.split(
-				/<code>([^<]+)<\/code>/g,
-			).map((part, i) => {
-				if (i % 2 === 0) {
-					return part;
-				}
+		a.replaceChildren(...shortened.split(/<code>([^<]+)<\/code>/g).map((part, i) => {
+			if (i % 2 === 0) {
+				return part;
+			}
 
-				const codeElement = document.createElement('code');
-				codeElement.textContent = part;
-				return codeElement;
-			}),
-		);
+			const codeElement = document.createElement('code');
+			codeElement.textContent = part;
+			return codeElement;
+		}));
 		return true;
 	}
 

@@ -1,3 +1,4 @@
+/* global document */
 import shortenUrl from '../index.js';
 import {urls} from '../fixtures/urls.js';
 
