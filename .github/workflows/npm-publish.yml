@@ -25,11 +25,10 @@ jobs:
       id-token: write
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version-file: package.json
-          registry-url: https://registry.npmjs.org
       - run: npm ci || npm install
       - uses: fregante/setup-git-user@v2
       - name: Create version
@@ -38,8 +37,6 @@ jobs:
           VERSION="$(npm version "${{ github.event.inputs.Version }}")"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
       - run: npm publish --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: git push --follow-tags
       - run: gh release create "$VERSION" --generate-notes
         env:
