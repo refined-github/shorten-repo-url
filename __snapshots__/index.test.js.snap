@@ -1,5 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`http://example.com?utm_source=newsletter 1`] = `http://example.com?utm_source=newsletter`;
+
 exports[`http://www.google.com/ 1`] = `http://www.google.com`;
 
 exports[`https://cdn.rawgit.com/fregante/shorten-repo-url/d71718db/.gitignore 1`] = `<code>d71718db</code>/.gitignore (raw)`;
@@ -12,7 +14,13 @@ exports[`https://cdn.rawgit.com/nodejs/node/v0.12/.gitignore 1`] = `nodejs/node@
 
 exports[`https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement#parameters 1`] = `developer.mozilla.org/en-US/docs/Web/API/Document/createElement#parameters`;
 
+exports[`https://example.com#section 1`] = `example.com#section`;
+
+exports[`https://example.com/?id=42 1`] = `example.com?id=42`;
+
 exports[`https://example.com/nodejs/node/blob/cc8fc46/.gitignore 1`] = `example.com/nodejs/node/blob/cc8fc46/.gitignore`;
+
+exports[`https://example.com?utm_source=newsletter 1`] = `example.com?utm_source=newsletter`;
 
 exports[`https://example.site/한글로-된-URL 1`] = `example.site/한글로-된-URL`;
 
@@ -261,6 +269,8 @@ exports[`https://togithub.com/nodejs/node/pull/123/files 1`] = `nodejs/node#123 
 exports[`https://togithub.com/refined-github/refined-github/commit/4f270c4f50e0a2a20085a6e92095117f10340322 1`] = `refined-github/refined-github@<code>4f270c4</code>`;
 
 exports[`https://togithub.com/refined-github/refined-github/commit/e81a9646b448d90c7e02ab41332cab0507dccbbd#commitcomment-60089354 1`] = `refined-github/refined-github@<code>e81a964</code> (comment)`;
+
+exports[`https://www.example.com?id=42 1`] = `example.com?id=42`;
 
 exports[`https://www.google.com/ 1`] = `google.com`;
 

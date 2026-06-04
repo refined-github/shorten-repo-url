@@ -135,4 +135,11 @@ export const urls = [
 	'https://example.com/nodejs/node/blob/cc8fc46/.gitignore',
 	'https://example.site/한글로-된-URL',
 	'https://한글로-된-경로.com/하위경로#한글-해시',
+
+	// Bare domain with a query/hash immediately after the host (no path) #regression
+	'https://example.com?utm_source=newsletter',
+	'http://example.com?utm_source=newsletter',
+	'https://example.com#section',
+	'https://www.example.com?id=42',
+	'https://example.com/?id=42',
 ];
