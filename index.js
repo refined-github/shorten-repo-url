@@ -86,7 +86,9 @@ function shortenRepoUrl(href, currentUrl = 'https://github.com') {
 	/**
 	 * Parse URL manually to avoid URL encoding and punycode
 	 */
-	const origin = href.split('/', 3).join('/');
+	// Strip any `?query`/`#hash` that follows the host directly (no path), otherwise
+	// it gets absorbed into `origin` and later re-appended → duplicated query/hash
+	const origin = href.split('/', 3).join('/').replace(/[?#].*/, '');
 	const pathname = href.slice(origin.length).replace(/[?#].*/, '') || '/';
 	const hash = /#.+$/.exec(href)?.[0] ?? '';
 
